@@ -4,8 +4,24 @@ import { EditarGerenteComponent } from './admin/editar-gerente/editar-gerente.co
 import { InserirGerenteComponent } from './admin/inserir-gerente/inserir-gerente.component';
 
 import { ListarGerentesComponent } from './admin/listar-gerentes/listar-gerentes.component';
+import { ConsultarCincoMelhoresComponent } from './gerente/consultar-cinco-melhores/consultar-cinco-melhores.component';
+import { ConsultarClienteComponent } from './gerente/consultar-cliente/consultar-cliente.component';
+import { ConsultarClientesComponent } from './gerente/consultar-clientes/consultar-clientes.component';
+import { TelaInicalGerComponent } from './gerente/tela-inical-ger/tela-inical-ger.component';
 
 const routes: Routes = [
+  {
+    path: 'gerente/tela-inicial',
+    component: TelaInicalGerComponent},
+  {
+    path: 'gerente/consultar-clientes',
+    component: ConsultarClientesComponent},
+  {
+    path: 'gerente/consultar-cliente',
+    component: ConsultarClienteComponent},
+  {
+    path: 'gerente/consultar-cinco',
+    component: ConsultarCincoMelhoresComponent},
   {
     path: 'admin/listar-gerente',
     component: ListarGerentesComponent},

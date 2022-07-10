@@ -1,12 +1,29 @@
 <div class="conteiner-fluid">
-  <nav class="navbar navbar-default">
-    <div class="conteiner-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          {{title}}
-        </a>
-      </div>
-    </div>
-  </nav>
+  <div class="conteiner-fluid">
+    <nav class="navbar navbar-expand-md n navbar-dark bg-dark">
+      <a class="navbar-brand nav-link" href="#" routerLink="/gerente/tela-inicial">
+        <i class="fa fa-user-check"></i>
+      </a>
+      <div class="navbar-collapse collapsed" id="navbarContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="/admin/listar-gerente">CRUD de Gerente</a>
+           </li>
+          <li class="nav-item">
+           <a class="nav-link" href="#" routerLink="/gerente/tela-inicial">Tela Inicial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="/gerente/consultar-clientes">Consultar Clientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="/gerente/consultar-cliente">Consultar Cliente</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="/gerente/consultar-cinco">Consultar 5 melhores Clientes</a>
+          </li>
+        </ul>
+      </div><br>
+    </nav>
+</div><br>
   <router-outlet></router-outlet>
 </div>
