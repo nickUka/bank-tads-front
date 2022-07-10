@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Fechar"
+      (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="modalLabel"> Recusar Autocadastro </h4>
+  </div>
+  <div class="modal-body text-center">
+    <div>
+      <p>Email: {{client.email}}</p>
+    </div>
+    <div class="form-group shadow-textarea">
+        <label for="exampleFormControlTextarea6">Motivo de Recusa</label>
+        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Digite sua mensagem"></textarea>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" 
+    (click)="activeModal.close()">Enviar</button>
+  </div>
