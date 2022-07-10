@@ -1,1 +1,34 @@
-<p>listar-gerentes works!</p>
+<h1>Gerentes</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <tbody>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>CPF</th>
+      <th class="text-center">
+        <a [routerLink]="['/admin/gerente/novo']" href="#" title="Novo" alt="Novo" 
+          class="btn btn-xs btn-success">
+          <i class="fa fa-plus" aria-hidden="true"></i> Novo
+        </a>
+      </th>
+    </tr>
+    <tr *ngFor="let gerente of gerentes">
+      <td> {{gerente.nome}} </td>
+      <td> {{gerente.email}} </td>
+      <td> {{gerente.cpf}} </td>
+      <td class="text-center" style="width: 300px">
+        <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info"
+          [routerLink]="['/admin/gerente/editar', gerente.id]">
+        <i class="fa fa-edit" aria-hidden="true"></i> Editar
+        </a>
+        <a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger"
+        (click)="remover($event, gerente)">
+        <i class="fa fa-times" aria-hidden="true"></i> Remover
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="gerentes.length==0">Nenhum gerente cadastrado.</p>

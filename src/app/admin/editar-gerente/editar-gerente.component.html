@@ -1,0 +1,55 @@
+<h1>Editar Gerente</h1>
+<div class="well">
+<form #formGerente="ngForm">
+<div class="form-group">
+	<label for="nome">Nome:</label>
+	<input type="text" class="form-control" id="nome" name="nome" 
+					[(ngModel)]="gerente.nome"
+					#nome="ngModel"
+					minlength="2" required> 
+	<div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
+		<div [hidden]="!nome.errors?.['required']"> 
+			Digite o nome do gerente. 
+		</div>
+		<div [hidden]="!nome.errors?.['minlength']"> 
+			O nome deve conter ao menos 2 caracteres. 
+		</div>
+	</div>
+</div>
+<div class="form-group">
+	<label for="email">Email:</label>
+	<input type="text" class="form-control" id="email" name="email" 
+			[(ngModel)]="gerente.email"
+			#email="ngModel"
+			required> 
+		<div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
+			<div [hidden]="!nome.errors?.['required']"> 
+				Digite o email do gerente. 
+			</div>
+		</div>
+</div>
+<div class="form-group">
+	<label for="cpf">CPF:</label>
+	<input type="text" class="form-control" id="cpf" name="cpf" 
+			[(ngModel)]="gerente.cpf"
+			#cpf="ngModel"
+			required> 	
+		<div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
+			<div [hidden]="!nome.errors?.['required']"> 
+				Digite o CPF do gerente. 
+			</div>
+		</div>
+</div>
+    <div class="form-group">
+    <button type="button" class="btn btn-primary"
+		(click)="atualizar()"
+		[disabled]="!formGerente.form.valid">
+    <i class="fa fa-save" aria-hidden="true"></i> Atualizar
+    </button>
+    <a class="btn btn-secondary"
+		[routerLink]="['/admin/listar-gerente']">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+    </a>
+    </div>
+    </form>
+    </div>
