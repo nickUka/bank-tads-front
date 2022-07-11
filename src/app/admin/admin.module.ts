@@ -8,18 +8,20 @@ import { FormsModule } from '@angular/forms';
 import { AdminService } from './services/admin.service';
 import { InserirGerenteComponent } from './inserir-gerente/inserir-gerente.component';
 import { EditarGerenteComponent } from './editar-gerente/editar-gerente.component';
+import { SharedModule } from '../shared';
 
 @NgModule({
   declarations: [
     TelaInicialComponent,
     ListarGerentesComponent,
     InserirGerenteComponent,
-    EditarGerenteComponent
+    EditarGerenteComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers:[
     AdminService

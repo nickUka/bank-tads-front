@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Gerente } from 'src/app/shared/models/gerente.model';
+import { Gerente } from 'src/app/shared';
 import { AdminService } from '../services/admin.service';
 
 @Component({
@@ -10,6 +10,8 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./inserir-gerente.component.css']
 })
 export class InserirGerenteComponent implements OnInit {
+
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   @ViewChild('formGerente') formGerente! : NgForm;
   gerente!: Gerente;
