@@ -16,7 +16,7 @@
     <tr *ngFor="let gerente of gerentes">
       <td> {{gerente.nome}} </td>
       <td> {{gerente.email}} </td>
-      <td> {{gerente.cpf}} </td>
+      <td> {{gerente.cpf! | cpfPipe}} </td>
       <td class="text-center" style="width: 300px">
         <a href="#" title="Editar" alt="Editar" class="btn btn-xs btn-info"
           [routerLink]="['/admin/gerente/editar', gerente.id]">

@@ -5,17 +5,18 @@ import { ConsultarClienteComponent } from './consultar-cliente/consultar-cliente
 import { ConsultarClientesComponent } from './consultar-clientes/consultar-clientes.component';
 import { ConsultarCincoMelhoresComponent } from './consultar-cinco-melhores/consultar-cinco-melhores.component';
 import { ModalRecusarComponent } from './modal-recusar/modal-recusar.component';
-
+import { SharedModule } from '../shared';
 @NgModule({
   declarations: [
     TelaInicalGerComponent,
     ConsultarClienteComponent,
     ConsultarClientesComponent,
     ConsultarCincoMelhoresComponent,
-    ModalRecusarComponent
+    ModalRecusarComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 export class GerenteModule { }

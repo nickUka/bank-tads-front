@@ -11,8 +11,8 @@
     </tr>
     <tr *ngFor="let client of clients">
       <td> {{client.nome}} </td>
-      <td> {{client.cpf}} </td>
-      <td> {{client.salario}} </td>
+      <td> {{client.cpf! | cpfPipe}} </td>
+      <td> {{client.salario | currency:'BRL'}} </td>
       <td class="text-center" style="width: 300px">
 				<button type="button" class="btn btn-xs btn-info" >
           <i class="fa fa-edit" aria-hidden="true"></i> Aprovar
