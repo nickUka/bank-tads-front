@@ -4,6 +4,13 @@ import { EditarGerenteComponent } from './admin/editar-gerente/editar-gerente.co
 import { InserirGerenteComponent } from './admin/inserir-gerente/inserir-gerente.component';
 
 import { ListarGerentesComponent } from './admin/listar-gerentes/listar-gerentes.component';
+import { TelaInicialAdminComponent } from './admin/tela-inicial-admin/tela-inicial-admin.component';
+import { ConsultarExtratoComponent } from './client/consultar-extrato/consultar-extrato.component';
+import { ConsultarSaldoComponent } from './client/consultar-saldo/consultar-saldo.component';
+import { DepositarComponent } from './client/depositar/depositar.component';
+import { SacarComponent } from './client/sacar/sacar.component';
+import { TelaInicialClientComponent } from './client/tela-inicial-client/tela-inicial-client.component';
+import { TransferirComponent } from './client/transferir/transferir.component';
 import { ConsultarCincoMelhoresComponent } from './gerente/consultar-cinco-melhores/consultar-cinco-melhores.component';
 import { ConsultarClienteComponent } from './gerente/consultar-cliente/consultar-cliente.component';
 import { ConsultarClientesComponent } from './gerente/consultar-clientes/consultar-clientes.component';
@@ -28,8 +35,32 @@ const routes: Routes = [
   {
     path: 'admin/gerente/novo',
     component: InserirGerenteComponent},
-  { path: 'admin/gerente/editar/:id',
+  { 
+    path: 'admin/gerente/editar/:id',
     component: EditarGerenteComponent},
+  {
+    path: 'admin/tela-inicial',
+    component: TelaInicialAdminComponent
+  },
+  {
+    path: 'client/tela-inicial',
+    component: TelaInicialClientComponent},
+  {
+    path: 'client/consultar-extrato',
+    component: ConsultarExtratoComponent},
+  {
+    path: 'client/consultar-saldo',
+    component: ConsultarSaldoComponent},
+  {
+    path: 'client/depositar',
+    component: DepositarComponent},
+  {
+    path: 'client/sacar',
+    component: SacarComponent},
+  {
+    path: 'client/transferir',
+    component: TransferirComponent
+  }
 ];
 
 @NgModule({

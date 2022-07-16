@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TelaInicialComponent } from './tela-inicial/tela-inicial.component';
+import { TelaInicialAdminComponent } from './tela-inicial-admin/tela-inicial-admin.component';
 import { ListarGerentesComponent } from './listar-gerentes/listar-gerentes.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { SharedModule } from '../shared';
 
 @NgModule({
   declarations: [
-    TelaInicialComponent,
+    TelaInicialAdminComponent,
     ListarGerentesComponent,
     InserirGerenteComponent,
     EditarGerenteComponent,
