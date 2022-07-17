@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Fechar"
+        (click)="activeModal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="modalLabel"> Cliente </h4>
+</div>
+
+<div class="modal-body text-center">
+    <div>
+        <p>Nome: </p>
+        <p>Email: </p>
+        <p>CPF:  </p>
+        <p>Endereço: </p>
+        <p>Salário: </p>
+        <p>Conta: </p>
+        <p>Data de criação da conta:</p>
+        <p>Limite: </p>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" 
+    (click)="activeModal.close()">Fechar</button>
+</div>
