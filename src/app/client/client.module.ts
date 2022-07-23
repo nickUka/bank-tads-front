@@ -8,6 +8,10 @@ import { SacarComponent } from './sacar/sacar.component';
 import { ConsultarSaldoComponent } from './consultar-saldo/consultar-saldo.component';
 import { ConsultarExtratoComponent } from './consultar-extrato/consultar-extrato.component';
 import { TelaInicialClientComponent } from './tela-inicial-client/tela-inicial-client.component';
+import { ClientService } from './services/client.service';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared';
 
 
 
@@ -23,7 +27,13 @@ import { TelaInicialClientComponent } from './tela-inicial-client/tela-inicial-c
     TelaInicialClientComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    SharedModule
+  ],
+  providers:[
+    ClientService
   ]
 })
 export class ClientModule { }

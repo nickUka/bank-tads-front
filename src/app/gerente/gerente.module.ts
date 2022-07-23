@@ -6,6 +6,7 @@ import { ConsultarClientesComponent } from './consultar-clientes/consultar-clien
 import { ConsultarCincoMelhoresComponent } from './consultar-cinco-melhores/consultar-cinco-melhores.component';
 import { ModalRecusarComponent } from './modal-recusar/modal-recusar.component';
 import { SharedModule } from '../shared';
+import { ModalClienteComponent } from './modal-cliente/modal-cliente.component';
 @NgModule({
   declarations: [
     TelaInicalGerComponent,
@@ -13,6 +14,7 @@ import { SharedModule } from '../shared';
     ConsultarClientesComponent,
     ConsultarCincoMelhoresComponent,
     ModalRecusarComponent,
+    ModalClienteComponent,
   ],
   imports: [
     CommonModule,

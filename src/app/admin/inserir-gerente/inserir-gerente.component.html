@@ -39,7 +39,7 @@
 					[(ngModel)]="gerente.cpf"
 					#cpf="ngModel"
 					numerico			
-					minlength="11"
+					maxlength="11"
 					minlength="11"
 					required> 	
 				<div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="alert alert-danger">
