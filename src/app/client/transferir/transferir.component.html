@@ -1,37 +1,39 @@
 <h1>Transferir</h1><br>
 
 <div class="well">
-	<h2>O saldo da conta é de:</h2><br>
-  <form>
+	<h2>O saldo da conta é de: {{salario | currency:'BRL'}}</h2><br>
+  <form #formTransf="ngForm">
 		<div class="row g-3">
 			<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Conta corrente: </label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control form-control-lg" id="colFormLabelLg"
-				required>
-				<div class="alert alert-danger">
-					<div> 
-						Digite uma conta corrente válida. 
-					</div>
-				</div>
+				<input type="text" class="form-control form-control-lg" id="colFormLabelLg" name="conta"
+				required
+				numerico>
 			</div>
-		</div>
+		</div><br>
 		<div class="row g-3">
 			<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Valor: </label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control form-control-lg" id="colFormLabelLg"
-				required>
-				<div class="alert alert-danger">
-					<div> 
+				<input type="text" class="form-control form-control-lg" id="colFormLabelLg" name="valor"
+				#valor="ngModel"
+				[(ngModel)]="cliente.salario"
+				required
+				numerico>
+				<div *ngIf="valor.errors && (valor.dirty || valor.touched)" class="alert alert-danger">
+					<div [hidden]="!valor.errors?.['required']"> 
 						Digite um valor para transferir. 
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="form-group">
-			<button type="button" class="btn btn-primary">
-				<i class="fa fa-save" aria-hidden="true"></i> Transferir
+			<button type="button" class="btn btn-primary"
+			(click)="transferir(cliente.salario)"
+			[disabled]="!formTransf.form.valid">
+				<i class="fa fa-save" aria-hidden="true"></i> Sacar
 			</button>
-			<a class="btn btn-danger">
+			<a class="btn btn-danger"
+			[routerLink]="['/client/tela-inicial']">
 				<i class="fa fa-cancel" aria-hidden="true"></i> Cancelar
 			</a>
     </div>

@@ -7,6 +7,7 @@ export class Client {
         public cpf: string,
         //public endereço: Endereco,
         public salario: string,
+        public id?: number
     ) {
     }
 }
