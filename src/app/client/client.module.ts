@@ -4,7 +4,6 @@ import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { DepositarComponent } from './depositar/depositar.component';
 import { TransferirComponent } from './transferir/transferir.component';
 import { SacarComponent } from './sacar/sacar.component';
-import { ConsultarSaldoComponent } from './consultar-saldo/consultar-saldo.component';
 import { ConsultarExtratoComponent } from './consultar-extrato/consultar-extrato.component';
 import { TelaInicialClientComponent } from './tela-inicial-client/tela-inicial-client.component';
 import { ClientService } from './services/client.service';
@@ -22,7 +21,6 @@ import { NgxMaskModule } from 'ngx-mask';
     DepositarComponent,
     TransferirComponent,
     SacarComponent,
-    ConsultarSaldoComponent,
     ConsultarExtratoComponent,
     TelaInicialClientComponent,
   ],

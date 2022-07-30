@@ -1,1 +1,17 @@
-<p>consultar-extrato works!</p>
+<h1>Extrato</h1>
+
+<table class="table table-striped table-bordered table-hover">
+    <tbody>
+        <br>
+        <tr>
+            <th>Data</th>
+            <th>Operação</th>
+        </tr>
+        <tr *ngFor="let transaction of extract">
+            <td> {{transaction.date | mask:'d0/M0/0000'}} </td>
+            <td> {{transaction.operation}} </td>
+        </tr>
+    </tbody>
+</table>
+
+<p *ngIf="extract.length==0">Nenhuma operação realizada.</p>
