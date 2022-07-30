@@ -1,1 +1,36 @@
-<p>tela-inicial-admin works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-2 bg-light text-dark p-4">
+            <div *ngFor="let gerente of gerentes">
+               <button type="button" (click)="selectGerente(gerente.id!)" class="btn">{{gerente?.nome??'S/N'}}</button>
+                <div class="dropdown-divider"></div>
+            </div>
+        </div>
+        <div class="col bg-dark text-dark justify-content-center">
+            <div *ngIf="selectedGerente">
+                <h2 class="my-4 text-light">{{selectedGerente.nome}}</h2>
+                <br>
+                <div class="row justify-content-around">
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header ">Quantidade de clientes</div>
+                        <div class="card-body">
+                            <h5 class="card-title">5</h5>
+                        </div>
+                    </div>
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Total saldos positivos</div>
+                        <div class="card-body">
+                            <h5 class="card-title text-success">{{452| currency:'BRL'}}</h5>
+                        </div>
+                    </div>
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Total saldos negativos</div>
+                        <div class="card-body">
+                            <h5 class="card-title text-danger">{{500 | currency:'BRL'}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4 class="text-light m-3" *ngIf="!selectedGerente">Selecione um Gerente para ver sua informação</h4>
+        </div>
+    </div>

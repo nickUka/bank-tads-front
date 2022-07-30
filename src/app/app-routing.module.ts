@@ -14,8 +14,7 @@ import { TelaInicialClientComponent } from './client/tela-inicial-client/tela-in
 import { TransferirComponent } from './client/transferir/transferir.component';
 import { ConsultarCincoMelhoresComponent } from './gerente/consultar-cinco-melhores/consultar-cinco-melhores.component';
 import { ConsultarClienteComponent } from './gerente/consultar-cliente/consultar-cliente.component';
-import { ConsultarClientesComponent } from './gerente/consultar-clientes/consultar-clientes.component';
-import { TelaInicialGerComponent as TelaInicialGerComponent } from './gerente/tela-inical-ger/tela-inical-ger.component';
+import { TelaInicialGerComponent} from './gerente/tela-inical-ger/tela-inical-ger.component';
 
 const routes: Routes = [
   {
@@ -34,10 +33,6 @@ const routes: Routes = [
   {
     path: 'gerente/tela-inicial',
     component: TelaInicialGerComponent
-  },
-  {
-    path: 'gerente/consultar-clientes',
-    component: ConsultarClientesComponent
   },
   {
     path: 'gerente/consultar-cliente',
