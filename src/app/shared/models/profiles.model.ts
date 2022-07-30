@@ -1,6 +1,6 @@
 import { Profile } from "..";
 
-abstract class User {
+export abstract class User {
     constructor(
         public id?: number,
         public nome?: string,
