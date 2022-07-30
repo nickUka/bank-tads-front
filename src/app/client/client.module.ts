@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginClientComponent } from './login-client/login-client.component';
 import { AutocadastroComponent } from './autocadastro/autocadastro.component';
 import { DepositarComponent } from './depositar/depositar.component';
 import { TransferirComponent } from './transferir/transferir.component';
@@ -12,25 +11,28 @@ import { ClientService } from './services/client.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
 @NgModule({
   declarations: [
-    LoginClientComponent,
     AutocadastroComponent,
     DepositarComponent,
     TransferirComponent,
     SacarComponent,
     ConsultarSaldoComponent,
     ConsultarExtratoComponent,
-    TelaInicialClientComponent
+    TelaInicialClientComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgbModule,
+    NgxMaskModule.forRoot()
   ],
   providers:[
     ClientService

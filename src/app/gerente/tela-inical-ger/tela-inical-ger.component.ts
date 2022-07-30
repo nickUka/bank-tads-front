@@ -10,7 +10,7 @@ import { GerenteService } from '../services/gerente.service';
   styleUrls: ['./tela-inical-ger.component.css'],
 })
 
-export class TelaInicalGerComponent implements OnInit {
+export class TelaInicialGerComponent implements OnInit {
   clients: Client[] = [];
 
   constructor(private gerenteService: GerenteService,

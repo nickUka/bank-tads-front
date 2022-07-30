@@ -1,1 +1,107 @@
-<p>autocadastro works!</p>
+<div style=" margin: auto; width: 40%;">
+    <!-- <div *ngIf="message" class="alert alert-danger
+alert-dismissible fade show" role="alert">
+        {{message}}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"> &times;</a>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="$event.preventDefault()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div> -->
+    <h1>Login</h1>
+    <div class="well">
+        <form #formLogin="ngForm">
+            <div class="form-group">
+                <label for="usuario">Usuário:</label>
+                <input type="text" class="form-control" id="usuario" name="usuario" [(ngModel)]="cliente.login"
+                    #usuario="ngModel" required>
+                <div *ngIf="usuario.errors && (usuario.dirty)" class="alert alert-danger">
+                    <div [hidden]="!usuario.errors['required']">
+                        Digite o usuário
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="text" class="form-control" id="senha" name="senha" [(ngModel)]="cliente.password"
+                    #senha="ngModel" required>
+                <div *ngIf="senha.errors && (senha.dirty)" class="alert alert-danger">
+                    <div [hidden]="!senha.errors['required']">
+                        Digite a senha.
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="cliente.nome" #nome="ngModel"
+                    required>
+                <div *ngIf="nome.errors && (nome.dirty)" class="alert alert-danger">
+                    <div [hidden]="!nome.errors['required']">
+                        Digite o nome.
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email" name="email" [(ngModel)]="cliente.email"
+                    #email="ngModel" required>
+                <div *ngIf="email.errors && (email.dirty)" class="alert alert-danger">
+                    <div [hidden]="!email.errors['required']">
+                        Digite a email.
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" class="form-control" id="cpf" name="cpf" [(ngModel)]="cliente.cpf" #cpf="ngModel"
+                    mask="000.000.000-00" required>
+                <div *ngIf="cpf.errors && (cpf.dirty)" class="alert alert-danger">
+                    <div [hidden]="!cpf.errors['required']">
+                        Digite a cpf.
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="rua">Rua:</label>
+                <input type="text" class="form-control" id="rua" name="rua" [(ngModel)]="cliente.rua" #rua="ngModel"
+                    required>
+                <div *ngIf="rua.errors && (rua.dirty)" class="alert alert-danger">
+                    <div [hidden]="!rua.errors['required']">
+                        Digite a rua.
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="num">Número:</label>
+                <input type="text" class="form-control" id="num" name="num" [(ngModel)]="cliente.numero" #num="ngModel"
+                    required>
+                <div *ngIf="num.errors && (num.dirty)" class="alert alert-danger">
+                    <div [hidden]="!num.errors['required']">
+                        Digite a num.
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="cep">CEP:</label>
+                <input type="text" class="form-control" id="cep" name="cep" [(ngModel)]="cliente.cep" #cep="ngModel"
+                    mask="00.000-00" required>
+                <div *ngIf="cep.errors && (cep.dirty)" class="alert alert-danger">
+                    <div [hidden]="!cep.errors['required']">
+                        Digite a cep.
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button type="button" class="btn btn-primary" (click)="cadastrar()" [disabled]="!formLogin.form.valid">
+                <i class="fa fa-save" aria-hidden="true"></i> Cadastrar-se
+            </button>
+        </form>
+    </div>
+    <br>
+</div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TelaInicalGerComponent } from './tela-inical-ger.component';
+import { TelaInicialGerComponent } from './tela-inical-ger.component';
 
 describe('TelaInicalGerComponent', () => {
-  let component: TelaInicalGerComponent;
-  let fixture: ComponentFixture<TelaInicalGerComponent>;
+  let component: TelaInicialGerComponent;
+  let fixture: ComponentFixture<TelaInicialGerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TelaInicalGerComponent ]
+      declarations: [ TelaInicialGerComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TelaInicalGerComponent);
+    fixture = TestBed.createComponent(TelaInicialGerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,6 +7,8 @@ import { AdminModule } from './admin/admin.module';
 import { GerenteModule } from './gerente/gerente.module';
 import { SharedModule } from './shared';
 import { ClientModule } from './client/client.module';
+import { AuthModule } from './auth/auth.module';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ClientModule } from './client/client.module';
     AdminModule,   
     GerenteModule,
     SharedModule,
-    ClientModule
+    ClientModule,
+    AuthModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
