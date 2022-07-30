@@ -17,6 +17,7 @@ export class Client extends User {
         login?: string,
         perfil?: Profile,
         password?: string,
+        public conta?: string,
         public email?: string,
         public cpf?: string,
         public salario?: string,
