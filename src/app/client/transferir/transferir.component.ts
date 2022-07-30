@@ -11,7 +11,7 @@ import { ClientService } from '../services/client.service';
 export class TransferirComponent implements OnInit {
 
   @ViewChild('formTransf') formTransf! : NgForm;
-  cliente: Client = new Client(1, 'Ana', 'email@email.com', Profile.Cliente, '', 'email@email.com', '12312312312', '2000');
+  cliente: Client = new Client(1, 'Ana', 'email@email.com', Profile.Cliente, '', '123', 'email@email.com', '12312312312', '2000');
   public salario: string = "";
   public conta: string = "";
 
@@ -21,7 +21,7 @@ export class TransferirComponent implements OnInit {
     this.salario = this.cliente.salario!;
   }
 
-  transferir(valor: String){
+  transferir(valor: String, conta: String){
     if(this.formTransf.form.valid){
       
       var valorAtual = Number(this.salario);
