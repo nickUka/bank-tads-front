@@ -8,7 +8,6 @@ import { TelaInicialAdminComponent } from './admin/tela-inicial-admin/tela-inici
 import { LoginComponent } from './auth/login/login.component';
 import { AutocadastroComponent } from './client/autocadastro/autocadastro.component';
 import { ConsultarExtratoComponent } from './client/consultar-extrato/consultar-extrato.component';
-import { ConsultarSaldoComponent } from './client/consultar-saldo/consultar-saldo.component';
 import { DepositarComponent } from './client/depositar/depositar.component';
 import { SacarComponent } from './client/sacar/sacar.component';
 import { TelaInicialClientComponent } from './client/tela-inicial-client/tela-inicial-client.component';
@@ -71,10 +70,6 @@ const routes: Routes = [
   {
     path: 'client/consultar-extrato',
     component: ConsultarExtratoComponent
-  },
-  {
-    path: 'client/consultar-saldo',
-    component: ConsultarSaldoComponent
   },
   {
     path: 'client/depositar',
