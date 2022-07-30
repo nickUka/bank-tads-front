@@ -5,6 +5,8 @@ import { InserirGerenteComponent } from './admin/inserir-gerente/inserir-gerente
 
 import { ListarGerentesComponent } from './admin/listar-gerentes/listar-gerentes.component';
 import { TelaInicialAdminComponent } from './admin/tela-inicial-admin/tela-inicial-admin.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AutocadastroComponent } from './client/autocadastro/autocadastro.component';
 import { ConsultarExtratoComponent } from './client/consultar-extrato/consultar-extrato.component';
 import { ConsultarSaldoComponent } from './client/consultar-saldo/consultar-saldo.component';
 import { DepositarComponent } from './client/depositar/depositar.component';
@@ -14,49 +16,74 @@ import { TransferirComponent } from './client/transferir/transferir.component';
 import { ConsultarCincoMelhoresComponent } from './gerente/consultar-cinco-melhores/consultar-cinco-melhores.component';
 import { ConsultarClienteComponent } from './gerente/consultar-cliente/consultar-cliente.component';
 import { ConsultarClientesComponent } from './gerente/consultar-clientes/consultar-clientes.component';
-import { TelaInicalGerComponent } from './gerente/tela-inical-ger/tela-inical-ger.component';
+import { TelaInicialGerComponent as TelaInicialGerComponent } from './gerente/tela-inical-ger/tela-inical-ger.component';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'autocadastro',
+    component: AutocadastroComponent
+  },
+  {
     path: 'gerente/tela-inicial',
-    component: TelaInicalGerComponent},
+    component: TelaInicialGerComponent
+  },
   {
     path: 'gerente/consultar-clientes',
-    component: ConsultarClientesComponent},
+    component: ConsultarClientesComponent
+  },
   {
     path: 'gerente/consultar-cliente',
-    component: ConsultarClienteComponent},
+    component: ConsultarClienteComponent
+  },
   {
     path: 'gerente/consultar-cinco',
-    component: ConsultarCincoMelhoresComponent},
+    component: ConsultarCincoMelhoresComponent
+  },
   {
     path: 'admin/listar-gerente',
-    component: ListarGerentesComponent},
+    component: ListarGerentesComponent
+  },
   {
     path: 'admin/gerente/novo',
-    component: InserirGerenteComponent},
-  { 
+    component: InserirGerenteComponent
+  },
+  {
     path: 'admin/gerente/editar/:id',
-    component: EditarGerenteComponent},
+    component: EditarGerenteComponent
+  },
   {
     path: 'admin/tela-inicial',
     component: TelaInicialAdminComponent
   },
   {
     path: 'client/tela-inicial',
-    component: TelaInicialClientComponent},
+    component: TelaInicialClientComponent
+  },
   {
     path: 'client/consultar-extrato',
-    component: ConsultarExtratoComponent},
+    component: ConsultarExtratoComponent
+  },
   {
     path: 'client/consultar-saldo',
-    component: ConsultarSaldoComponent},
+    component: ConsultarSaldoComponent
+  },
   {
     path: 'client/depositar',
-    component: DepositarComponent},
+    component: DepositarComponent
+  },
   {
     path: 'client/sacar',
-    component: SacarComponent},
+    component: SacarComponent
+  },
   {
     path: 'client/transferir',
     component: TransferirComponent

@@ -28,7 +28,7 @@
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary"
-			(click)="transferir(cliente.salario)"
+			(click)="transferir(cliente.salario!)"
 			[disabled]="!formTransf.form.valid">
 				<i class="fa fa-save" aria-hidden="true"></i> Sacar
 			</button>

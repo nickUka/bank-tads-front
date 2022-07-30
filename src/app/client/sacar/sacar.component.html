@@ -21,7 +21,7 @@
 		
 		<div class="form-group">
 			<button type="button" class="btn btn-primary"
-			(click)="sacar(cliente.salario)"
+			(click)="sacar(cliente.salario!)"
 			[disabled]="!formSaque.form.valid">
 				<i class="fa fa-save" aria-hidden="true"></i> Sacar
 			</button>

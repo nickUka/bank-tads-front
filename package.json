@@ -23,6 +23,7 @@
     "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.1.3",
     "jquery": "^3.6.0",
+    "ngx-mask": "^14.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
