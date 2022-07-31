@@ -11,7 +11,7 @@ export class TelaInicialClientComponent implements OnInit {
 
   clientes: Client[] = [];
 
-  cliente: Client = new Client(1, 'Ana', 'email@email.com', Profile.Cliente, '', 'email@email.com', '12312312312', '2000');
+  cliente: Client = new Client(1, 'Ana', 'email@email.com', Profile.Cliente, '', '123', 'email@email.com', '12312312312', '2000');
 
 
   public nome: string = "";
