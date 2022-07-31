@@ -1,1 +1,17 @@
-<p>consultar-cinco-melhores works!</p>
+<table class="table table-striped table-bordered table-hover my-3 w-50">
+    <tbody>
+      <br>
+      <tr>
+        <th>Nome</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let client of clientes">
+        <td> {{client.nome}} </td>
+        <td style="width: 150px">
+          <button type="button" class="btn btn-xs btn-primary" (click)="abrirModalConsulta(client)">
+            <i class="fa-solid fa-eye"></i> Consultar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
