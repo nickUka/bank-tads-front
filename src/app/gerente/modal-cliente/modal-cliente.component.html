@@ -8,10 +8,10 @@
 
 <div class="modal-body text-center">
     <div>
-        <p>Nome: </p>
-        <p>Email: </p>
-        <p>CPF:  </p>
-        <p>Endereço: </p>
+        <p>Nome: {{client.nome}}</p>
+        <p>Email: {{client.email}}</p>
+        <p>CPF:  {{client.cpf ?? '' | mask: '000.000.000-00'}}</p>
+        <p>Endereço: {{client.rua}}, {{client.numero}}</p>
         <p>Salário: </p>
         <p>Conta: </p>
         <p>Data de criação da conta:</p>
