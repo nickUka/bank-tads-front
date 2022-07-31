@@ -1,8 +1,31 @@
-<h1>Consultar Cliente</h1><br>
-<form>
-    <div class="form-group">
-      <label for="cpf">CPF</label>
-      <input type="email" class="form-control" id="cpf" placeholder="Digite o CPF do cliente">
+<div class="m-5">
+  <h1>Consultar Cliente</h1><br>
+  <form class=" row">
+    <div class="form-group" style="width: 250px">
+      <input type="text" class="form-control" id="cpf" name="cpf" mask="000.000.000-00" placeholder="Digite o CPF do cliente" [(ngModel)]="cpf">
     </div><br>
-    <button type="submit" class="btn btn-primary">Consultar</button>
-</form>
+    <button style="width: 45px" type="submit" class="btn btn-primary" (click)="buscarClientePorCpf()">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </form>
+  <br>
+  <table class="table table-striped table-bordered table-hover my-3 w-50">
+    <tbody>
+      <br>
+      <tr>
+        <th>Nome</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let client of clientes">
+        <td> {{client.nome}} </td>
+        <td style="width: 150px">
+          <button type="button" class="btn btn-xs btn-primary" (click)="abrirModalConsulta(client)">
+            <i class="fa-solid fa-eye"></i> Consultar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <p *ngIf="clients.length==0">Nenhuma autocadastro realizado.</p> -->
+</div>

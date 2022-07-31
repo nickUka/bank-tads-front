@@ -6,6 +6,9 @@ import { ConsultarCincoMelhoresComponent } from './consultar-cinco-melhores/cons
 import { ModalRecusarComponent } from './modal-recusar/modal-recusar.component';
 import { SharedModule } from '../shared';
 import { ModalClienteComponent } from './modal-cliente/modal-cliente.component';
+import { NgxMaskModule } from 'ngx-mask';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     TelaInicialGerComponent,
@@ -16,7 +19,10 @@ import { ModalClienteComponent } from './modal-cliente/modal-cliente.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    NgbModule,
+    NgxMaskModule.forRoot()
   ]
 })
 export class GerenteModule { }
