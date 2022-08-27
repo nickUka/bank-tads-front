@@ -1,6 +1,10 @@
 export class Transaction {
     constructor(
         public date: string,
-        public operation: number,
+        public hour: string,
+        public operation: string,
+        public origin: string,
+        public destiny: string,
+        public value: number
     ) { }
 }

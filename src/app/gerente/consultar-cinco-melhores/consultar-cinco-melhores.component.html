@@ -3,10 +3,18 @@
       <br>
       <tr>
         <th>Nome</th>
+        <th>CPF</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>Saldo</th>
         <th></th>
       </tr>
       <tr *ngFor="let client of clientes">
         <td> {{client.nome}} </td>
+        <td> {{client.cpf! | cpfPipe}} </td>
+        <td> {{client.cidade}} </td>
+        <td> {{client.estado}} </td>
+        <td> {{client.salario}} </td>
         <td style="width: 150px">
           <button type="button" class="btn btn-xs btn-primary" (click)="abrirModalConsulta(client)">
             <i class="fa-solid fa-eye"></i> Consultar
