@@ -11,17 +11,19 @@ export class TelaInicialClientComponent implements OnInit {
 
   clientes: Client[] = [];
 
-  cliente: Client = new Client(1, 'Ana', 'email@email.com', Profile.Cliente, '', '123', 'email@email.com', '12312312312', '2000');
+  cliente: Client = new Client(1, 'Ana', 'email@email.com', Profile.Cliente, '', '123', 'email@email.com', '12312312312', '4000', '2000');
 
 
   public nome: string = "";
   public salario: string = "";
+  public limite: string = "";
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
     this.nome = this.cliente.nome!;
     this.salario = this.cliente.salario!;
+    this.limite = this.cliente.limite!;
   }
 
 }

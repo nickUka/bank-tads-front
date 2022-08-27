@@ -1,15 +1,29 @@
-<h1>Extrato</h1>
+<br><h1 style="margin-left: 10px">Extrato</h1>
 
+<br><h2 style="margin-left: 10px">Saldo: {{cliente.salario | currency:'BRL'}}</h2>
 <table class="table table-striped table-bordered table-hover">
     <tbody>
         <br>
         <tr>
             <th>Data</th>
+            <th>Hora</th>
             <th>Operação</th>
+            <th>Cliente Origem</th>
+            <th>Cliente Destino</th>
+            <th>Valor</th>
         </tr>
         <tr *ngFor="let transaction of extract">
             <td> {{transaction.date | mask:'d0/M0/0000'}} </td>
+            <td> {{transaction.hour | mask:'99:99:99'}} </td>
             <td> {{transaction.operation}} </td>
+            <td *ngIf="transaction.operation === 'transferência'"> {{transaction.origin}} </td>
+            <td *ngIf="transaction.operation !== 'transferência'"> - </td>
+            <td *ngIf="transaction.operation === 'transferência'"> {{transaction.destiny}} </td>
+            <td *ngIf="transaction.operation !== 'transferência'"> - </td>
+            <td *ngIf="transaction.operation === 'saque'" style="color: red;"> {{transaction.value | currency:'BRL'}} </td>
+            <td *ngIf="transaction.operation === 'depósito'" style="color: blue;"> {{transaction.value | currency:'BRL'}} </td>
+            <td *ngIf="transaction.origin === cliente.conta && transaction.operation === 'transferência'" style="color: red;"> {{transaction.value | currency:'BRL'}} </td>
+            <td *ngIf="transaction.origin !== cliente.conta && transaction.operation === 'transferência'" style="color: blue;"> {{transaction.value | currency:'BRL'}} </td>
         </tr>
     </tbody>
 </table>
