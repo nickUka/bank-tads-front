@@ -101,6 +101,10 @@ alert-dismissible fade show" role="alert">
             <button type="button" class="btn btn-primary" (click)="cadastrar()" [disabled]="!formLogin.form.valid">
                 <i class="fa fa-save" aria-hidden="true"></i> Cadastrar-se
             </button>
+            <a class="btn btn-danger"
+			[routerLink]="['/login']">
+				<i class="fa fa-cancel" aria-hidden="true"></i> Cancelar
+			</a>
         </form>
     </div>
     <br>

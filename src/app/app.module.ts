@@ -9,6 +9,7 @@ import { SharedModule } from './shared';
 import { ClientModule } from './client/client.module';
 import { AuthModule } from './auth/auth.module';
 import { NgxMaskModule } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NgxMaskModule } from 'ngx-mask';
     ClientModule,
     AuthModule,
     NgxMaskModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
