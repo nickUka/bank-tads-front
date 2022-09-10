@@ -7,6 +7,12 @@ import { LoginService } from './services/login.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+    
+  constructor(
+    private loginService: LoginService,
+    private router: Router
+  ) {}
+   
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -26,9 +32,4 @@ export class AuthGuard implements CanActivate {
     this.router.navigate(['/login'], { queryParams: { error: "Deve fazer o login antes de acessar " + url } });
       return false;
   }
-  
-  constructor(
-    private loginService: LoginService,
-    private router: Router
-    ) {}
 }

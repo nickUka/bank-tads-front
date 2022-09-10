@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './auth/services/login.service';
-import { User } from './shared';
+import { Usuario } from './shared/models/usuario.model';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,7 @@ export class AppComponent {
     private loginService: LoginService
   ) { }
     
-  get usuarioLogado(): User | null {
+  get usuarioLogado(): Usuario | null {
     return this.loginService.usuarioLogado;
   }
     

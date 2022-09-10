@@ -7,7 +7,6 @@ import { ListarGerentesComponent } from './admin/listar-gerentes/listar-gerentes
 import { TelaInicialAdminComponent } from './admin/tela-inicial-admin/tela-inicial-admin.component';
 import { LoginRoutes } from './auth/auth-routing.module';
 import { AuthGuard } from './auth/auth.guard';
-import { LoginComponent } from './auth/login/login.component';
 import { AutocadastroComponent } from './client/autocadastro/autocadastro.component';
 import { ConsultarExtratoComponent } from './client/consultar-extrato/consultar-extrato.component';
 import { DepositarComponent } from './client/depositar/depositar.component';
@@ -22,7 +21,7 @@ import { Profile } from './shared';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -34,7 +33,7 @@ const routes: Routes = [
     component: TelaInicialGerComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Gerente
+      role: 'GERENTE'
     }
   },
   {
@@ -42,7 +41,7 @@ const routes: Routes = [
     component: ConsultarClienteComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Gerente
+      role: 'GERENTE'
     }
   },
   {
@@ -50,7 +49,7 @@ const routes: Routes = [
     component: ConsultarCincoMelhoresComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Gerente
+      role: 'GERENTE'
     }
   },
   {
@@ -58,7 +57,7 @@ const routes: Routes = [
     component: ListarGerentesComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Admin
+      role: 'ADMIN'
     }
   },
   {
@@ -66,7 +65,7 @@ const routes: Routes = [
     component: InserirGerenteComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Admin
+      role: 'ADMIN'
     }
   },
   {
@@ -74,7 +73,7 @@ const routes: Routes = [
     component: EditarGerenteComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Admin
+      role: 'ADMIN'
     }
   },
   {
@@ -82,7 +81,7 @@ const routes: Routes = [
     component: TelaInicialAdminComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Admin
+      role: 'ADMIN'
     }
   },
   {
@@ -90,7 +89,7 @@ const routes: Routes = [
     component: TelaInicialClientComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Cliente
+      role: 'CLIENTE'
     }
   },
   {
@@ -98,7 +97,7 @@ const routes: Routes = [
     component: ConsultarExtratoComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Cliente
+      role: 'CLIENTE'
     }
   },
   {
@@ -106,7 +105,7 @@ const routes: Routes = [
     component: DepositarComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Cliente
+      role: 'CLIENTE'
     }
   },
   {
@@ -114,7 +113,7 @@ const routes: Routes = [
     component: SacarComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Cliente
+      role: 'CLIENTE'
     }
   },
   {
@@ -122,7 +121,7 @@ const routes: Routes = [
     component: TransferirComponent,
     canActivate: [AuthGuard],
     data: {
-      role: Profile.Cliente
+      role: 'CLIENTE'
     }
   },
   ...LoginRoutes

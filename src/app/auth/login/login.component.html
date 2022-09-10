@@ -23,7 +23,7 @@ alert-dismissible fade show" role="alert">
             <br>
             <div class="form-group">
                 <label for="senha">Senha:</label>
-                <input type="text" class="form-control" id="senha" name="senha" [(ngModel)]="login.password"
+                <input type="password" class="form-control" id="senha" name="senha" [(ngModel)]="login.password"
                     #senha="ngModel" required>
                 <div *ngIf="senha.errors && (senha.dirty)" class="alert alert-danger">
                     <div [hidden]="!senha.errors['required']">

@@ -11,7 +11,7 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('formLogin') formLogin!: NgForm;
-  login: Login = new Login('', '');
+  login: Login = new Login();
   loading: boolean = false;
   message!: string;
 
@@ -20,7 +20,13 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,) { 
       if(this.loginService.usuarioLogado){
-        this.router.navigate(["/client/tela-inicial"]);
+        if(this.loginService.usuarioLogado.perfil === 'CLIENTE'){
+          this.router.navigate(["/client/tela-inicial"]);
+        }if(this.loginService.usuarioLogado.perfil === 'GERENTE'){
+          this.router.navigate(["/gerente/tela-inicial"]);
+        }if(this.loginService.usuarioLogado.perfil === 'ADMIN'){
+          this.router.navigate(["/admin/tela-inicial"]);
+        }
       }
     }
 
@@ -38,7 +44,13 @@ export class LoginComponent implements OnInit {
         if (user != null) {
           this.loginService.usuarioLogado = user;
           this.loading = false;
-          this.router.navigate(["/client/tela-inicial"]);
+          if(this.loginService.usuarioLogado.perfil === 'CLIENTE'){
+            this.router.navigate(["/client/tela-inicial"]);
+          }if(this.loginService.usuarioLogado.perfil === 'GERENTE'){
+            this.router.navigate(["/gerente/tela-inicial"]);
+          }if(this.loginService.usuarioLogado.perfil === 'ADMIN'){
+            this.router.navigate(["/admin/tela-inicial"]);
+          }
         }
         else {
           this.message = "Usuário/Senha inválidos.";
