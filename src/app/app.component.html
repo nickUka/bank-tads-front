@@ -10,7 +10,7 @@
       <a class="navbar-brand nav-link" href="#" routerLink="/admin/tela-inicial">
         <i class="fa-solid fa-user-shield"></i>
       </a>
-      <div class="navbar-collapse collapsed justify-content-end" id="navbarContent">
+      <div *ngIf='usuarioLogado' class="navbar-collapse collapsed justify-content-end" id="navbarContent">
         <ul class="navbar-nav ml-auto">
           <!-- telas de cliente -->
           <li class="nav-item">
@@ -45,6 +45,16 @@
           <li class="nav-item">
             <a class="nav-link" href="#" routerLink="/admin/listar-gerente">CRUD de Gerente</a>
           </li>
+        </ul>
+        <ul *ngIf="usuarioLogado" class="navbar-nav ml-auto">
+          <li class="nav-item">
+          <a class="nav-link" href="#" (click)="logout()">Logout</a>
+          </li>
+          <li class="nav-item">
+            <p class="navbar-text mb-0 text-white">
+            <i class="fa fa-user"></i> {{ usuarioLogado.nome }}
+            </p>
+            </li>
         </ul>
       </div><br>
     </nav>

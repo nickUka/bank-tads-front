@@ -37,8 +37,9 @@ export class Admin extends User {
         nome?: string,
         login?: string,
         perfil?: Profile,
+        password?: string,
     ) {
-        super(id, nome, login, perfil,);
+        super(id, nome, login, perfil, password);
     }
 }
 export class Gerente extends User {
@@ -47,9 +48,11 @@ export class Gerente extends User {
         nome?: string,
         login?: string,
         perfil?: Profile,
+        password?: string,
+        tipo?: string,
         public email?: string,
         public cpf?: string,
     ) {
-        super(id, nome, login, perfil,);
+        super(id, nome, login, perfil, password);
     }
 }
