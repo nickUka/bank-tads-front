@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Gerente } from 'src/app/shared';
+import { Gerente } from 'src/app/shared/models/gerente.model';
 import { AdminService } from '../services/admin.service';
 
 @Component({

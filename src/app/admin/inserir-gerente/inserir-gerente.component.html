@@ -9,10 +9,10 @@
 				#nome="ngModel"
 				minlength="2" required> 
 				<div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger">
-					<div [hidden]="!nome.errors?.['required']"> 
+					<div [hidden]="!nome?.errors?.['required']"> 
 						Digite o nome do gerente. 
 					</div>
-					<div [hidden]="!nome.errors?.['minlength']"> 
+					<div [hidden]="!nome?.errors?.['minlength']"> 
 						O nome deve conter ao menos 2 caracteres. 
 					</div>
 				</div>

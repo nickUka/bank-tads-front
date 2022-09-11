@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Gerente } from 'src/app/shared';
+import { Gerente } from 'src/app/shared/models/gerente.model';
 import { AdminService } from '../services/admin.service';
 
 @Component({
@@ -29,6 +29,9 @@ export class InserirGerenteComponent implements OnInit {
   inserir(): void{
     this.loading = true;
     if (this.formGerente.form.valid) {
+      this.gerente.login = this.gerente.email;
+      this.gerente.senha = this.gerente.email;
+
       this.adminService.inserir(this.gerente).subscribe(
         gerente => {
           this.loading = false;

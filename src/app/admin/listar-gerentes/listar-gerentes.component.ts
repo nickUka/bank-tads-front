@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Gerente } from 'src/app/shared/models/gerente.model';
 import { AdminService } from '../services/admin.service';
-import { Gerente } from 'src/app/shared';
 
 @Component({
   selector: 'app-listar-gerentes',

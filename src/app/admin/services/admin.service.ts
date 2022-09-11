@@ -34,8 +34,8 @@ export class AdminService {
   }
 
   inserir(gerente: Gerente): Observable<Gerente> {
-    return this.httpClient.post<Gerente>(this.BASE_URL,
-    JSON.stringify(gerente), 
+    return this.httpClient.post<Gerente>(this.BASE_URL+'gerentes/',
+    gerente, 
     this.httpOptions);
   }
 
@@ -46,12 +46,12 @@ export class AdminService {
 
   atualizar(gerente: Gerente): Observable<Gerente> {
     return this.httpClient.put<Gerente>(this.BASE_URL + `gerentes/` +gerente.id, 
-    JSON.stringify(gerente), 
+    gerente, 
     this.httpOptions);
   }
 
   remover(id: number): Observable<Gerente> {
-    return this.httpClient.delete<Gerente>(this.BASE_URL + id,
+  return this.httpClient.delete<Gerente>(this.BASE_URL +  `gerentes/${id}`,
     this.httpOptions);
   }
 }
