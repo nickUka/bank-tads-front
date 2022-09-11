@@ -41,7 +41,7 @@ export class ConsultarExtratoComponent implements OnInit {
       this.clientService.getExtrato().subscribe((res) => {
         if (res) {
           console.log(res);
-          this.extrato = res;
+          this.extrato = res.reverse();
           this.loading = false;         
         }
         else {

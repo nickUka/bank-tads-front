@@ -16,11 +16,18 @@ export class ClientService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
+<<<<<<< HEAD
+      'x-access-token': this.loginService.usuarioLogado?.token ?? ''
+=======
       'x-access-token': this.loginService.usuarioLogado?.token??""
+>>>>>>> 15695e48a800c199d4c9732b1393bd01077e3ea9
     })
   };
 
-  constructor(private httpClient: HttpClient, private loginService: LoginService) { }
+  constructor(
+    private httpClient: HttpClient,
+    private loginService: LoginService,
+    ) { }
 
   buscarPorId(id: number): Client | undefined {
     //obtém a lista
@@ -43,11 +50,19 @@ export class ClientService {
         this.httpOptions);
   }
 
-  // deposite(valor: number): Observable<SaldoResponse> | null {
-  //   return this.httpClient.get<SaldoResponse>(
-  //     this.BASE_URL + `/saldo/${this.loginService.usuarioLogado.id}`,
-  //     this.httpOptions);
-  // }
+  depositar(valor: number): Observable<SaldoResponse> | null {
+    return this.httpClient.put<SaldoResponse>(
+      this.BASE_URL + `/depositar/${this.loginService.usuarioLogado.id}`,
+      {valor},
+      this.httpOptions);
+  }
+
+  sacar(valor: number): Observable<SaldoResponse> | null {
+    return this.httpClient.put<SaldoResponse>(
+      this.BASE_URL + `/sacar/${this.loginService.usuarioLogado.id}`,
+      {valor},
+      this.httpOptions);
+  }
 
   getExtrato(): Observable<Array<Transaction>> {
     return this.httpClient.get<Array<Transaction>>(
@@ -55,12 +70,21 @@ export class ClientService {
       this.httpOptions);
   }
 
+<<<<<<< HEAD
+  transferir(valor: number, id: number): Observable<any> | null {
+    return this.httpClient.put<any>(
+      this.BASE_URL + `/transferir/${this.loginService.usuarioLogado.id}/${id}`,
+      {valor},
+      this.httpOptions);
+  }
+=======
   cadastrar(cliente: Client): Observable<Client>{
     return this.httpClient.post<Client>(this.BASE_URL + `/autocadastro`, 
       JSON.stringify(cliente),
       this.httpOptions);
   }
 
+>>>>>>> 15695e48a800c199d4c9732b1393bd01077e3ea9
 }
 
 export default interface SaldoResponse {

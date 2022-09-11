@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Client, Profile } from 'src/app/shared';
-import { ClientService } from '../services/client.service';
+import SaldoResponse, { ClientService } from '../services/client.service';
 
 @Component({
   selector: 'app-sacar',
@@ -11,26 +11,49 @@ import { ClientService } from '../services/client.service';
 export class SacarComponent implements OnInit {
   
   @ViewChild('formSaque') formSaque! : NgForm;
-  cliente: Client = new Client(1, 'Ana', 'email@email.com', Profile.Cliente, '', '123', 'email@email.com', '12312312312', '2000');
-  public salario: string = "";
+  
+  loading: boolean = false;
+  message?: string;
+  valorSaque: number = 0;
+  saldo?: SaldoResponse;
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
-    this.salario = this.cliente.salario!;
+    this.getSaldo();
   }
 
-  sacar(valor: String){
+  sacar(){
     if(this.formSaque.form.valid){
-      var valorAtual = Number(this.salario);
-      var valorSaque = Number(valor);
-      if(valorSaque <= valorAtual) {
-        var res = valorAtual - valorSaque;
-        this.salario = res.toString();
+      if(this.saldo && this.valorSaque <= (this.saldo?.saldo + this.saldo?.limite)) {
+        this.clientService.sacar(this.valorSaque)?.subscribe((res) => {
+            if(res){
+              return;
+            }else{
+              confirm(`Erro`);
+            }
+        });
       }else{
         confirm(`Digite um valor de saque menor que o saldo atual.`);
       }
     }
+
+    window.location.reload();
+  }
+
+  getSaldo(): void {
+    this.loading = true;
+    this.clientService.getSaldo()?.subscribe((res) => {
+      if (res) {
+        console.log(res);
+        this.saldo = res;
+        this.loading = false;
+      }
+      else {
+        this.message = "Erro";
+      }
+    }).closed;
+    this.loading = false;
   }
 
 }

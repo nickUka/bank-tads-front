@@ -1,18 +1,18 @@
 <br><h1 style="margin-left: 10px">Sacar</h1><br>
 
 <div class="well" style="margin-left: 20px; margin-right: 25px;">
-	<h2>O saldo da conta é de: {{salario | currency:'BRL'}}</h2><br>
+	<h2>O saldo da conta é de: {{saldo?.saldo | currency:'BRL'}}</h2><br>
   <form #formSaque="ngForm">
 		<div class="row g-3">
 			<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Valor do saque:</label>
 			<div class="col-sm-3">
 				<input type="text" class="form-control form-control-lg" id="colFormLabelLg" name="valor"
 				#valor="ngModel"
-				[(ngModel)]="cliente.salario"
+				[(ngModel)]="valorSaque"
 				required
 				numerico>
 				<div *ngIf="valor.errors && (valor.dirty || valor.touched)" class="alert alert-danger">
-					<div [hidden]="!valor.errors?.['required']"> 
+					<div [hidden]="!valor?.errors?.['required']"> 
 						Digite um valor para saque. 
 					</div>
 				</div>
@@ -21,7 +21,7 @@
 		
 		<br><div class="form-group">
 			<button type="button" class="btn btn-primary"
-			(click)="sacar(cliente.salario!)"
+			(click)="sacar()"
 			[disabled]="!formSaque.form.valid"
 			style="margin-right: 20px;">
 				<i class="fa fa-save" aria-hidden="true"></i> Sacar
