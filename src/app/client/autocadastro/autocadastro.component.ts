@@ -12,16 +12,29 @@ import { ClientService } from '../services/client.service';
 export class AutocadastroComponent implements OnInit {
   @ViewChild('formCadastro') formCadastro!: NgForm;
 
-  public cliente: Client = new Client();
+  cliente: Client = new Client();
+  loading!: boolean;
+
   constructor(
     private clientService: ClientService,
     private router:Router,
   ) { }
 
   ngOnInit(): void {
+    this.cliente = new Client();
+    this.loading = false;
   }
   
   cadastrar(): void {
-    this.router.navigate([''])
+    this.loading = true;
+    if(this.formCadastro.form.valid){
+      this.clientService.cadastrar(this.cliente).subscribe(
+        cliente => {
+          this.loading = false;
+          this.router.navigate(['/login']);
+        }
+      );
+    }
+    this.loading = false;
   }
 }

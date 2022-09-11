@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Gerente } from 'src/app/shared';
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-tela-inicial-admin',
@@ -8,20 +9,38 @@ import { Gerente } from 'src/app/shared';
 })
 export class TelaInicialAdminComponent implements OnInit {
 
-  public gerentes: Array<Gerente> = [
-    new Gerente(1, 'Nickolas '),
-    new Gerente(2, 'Nickolas 2'),
-    new Gerente(3, 'Nickolas 3'),
-    new Gerente(4, 'Nickolas 4'),
-  ];
+  gerentes: Gerente[] = [];
+  loading: boolean = false;
+  gerente!: Gerente;
 
-  public selectedGerente?: Gerente;
-  constructor() { }
+  selectedGerente?: Gerente;
+  
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
+    this.gerentes = [];
+    this.listarTodos();
+  }
+
+  listarTodos(): Gerente[] {
+    this.adminService.listarGerentes().subscribe({
+      next: (data: Gerente[]) => {
+        if (data == null) {
+          this.gerentes = [];
+        }
+        else {
+          this.gerentes = data;
+        }
+      }
+    });
+    return this.gerentes;
   }
 
   selectGerente(id: number): void {    
-    this.selectedGerente = this.gerentes.find(gerente => gerente.id === id);
+    this.adminService.buscarPorId(+id).subscribe(
+      selectedGerente => {
+        this.selectedGerente = selectedGerente;
+      }
+    )
   }
 }

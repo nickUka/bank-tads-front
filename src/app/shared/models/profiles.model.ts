@@ -24,6 +24,8 @@ export class Client extends User {
         public limite?: string,
         public cidade?: string,
         public estado?: string,
+        public logradouro?: string,
+        public complemento?: string,
         public rua?: string,
         public numero?: number,
         public cep?: string,
