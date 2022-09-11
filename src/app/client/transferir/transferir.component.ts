@@ -31,7 +31,6 @@ export class TransferirComponent implements OnInit {
       this.loading = true;
       this.clientService.transferir(this.valorTrans, this.id)?.subscribe((res) => {
         if (res) {
-          return;
         }
         else {
           confirm("Erro");
@@ -39,6 +38,8 @@ export class TransferirComponent implements OnInit {
       }).closed;
       this.loading = false;      
     }}
+
+    window.location.reload();
   }
 
   getSaldo(): void {
