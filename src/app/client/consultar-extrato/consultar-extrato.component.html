@@ -22,8 +22,8 @@
             <td *ngIf="transaction.tipoMovimentacao !== 'TRANSFERENCIA'"> - </td>
             <td *ngIf="transaction.tipoMovimentacao === 'SAQUE'" style="color: red;"> - {{transaction.valor | currency:'BRL'}} </td>
             <td *ngIf="transaction.tipoMovimentacao === 'DEPOSITO'" style="color: blue;"> {{transaction.valor | currency:'BRL'}} </td>
-            <td *ngIf="transaction.valor < 0 && transaction.tipoMovimentacao === 'TTRANSFERENCIA'" style="color: red;"> - {{transaction.valor | currency:'BRL'}} </td>
-            <td *ngIf="transaction.valor >= 0 && transaction.tipoMovimentacao === 'RANSFERENCIA'" style="color: blue;"> {{transaction.valor | currency:'BRL'}} </td>
+            <td *ngIf="transaction.valor < 0 && transaction.tipoMovimentacao === 'TRANSFERENCIA'" style="color: red;"> - {{transaction.valor | currency:'BRL'}} </td>
+            <td *ngIf="transaction.valor >= 0 && transaction.tipoMovimentacao === 'TRANSFERENCIA'" style="color: blue;"> {{transaction.valor | currency:'BRL'}} </td>
         </tr>
     </tbody>
 </table>
