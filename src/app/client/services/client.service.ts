@@ -16,11 +16,14 @@ export class ClientService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'x-access-token': this.loginService.usuarioLogado.token
+      'x-access-token': this.loginService.usuarioLogado?.token ?? ''
     })
   };
 
-  constructor(private httpClient: HttpClient, private loginService: LoginService) { }
+  constructor(
+    private httpClient: HttpClient,
+    private loginService: LoginService,
+    ) { }
 
   buscarPorId(id: number): Client | undefined {
     //obtém a lista
@@ -43,11 +46,19 @@ export class ClientService {
         this.httpOptions);
   }
 
-  // deposite(valor: number): Observable<SaldoResponse> | null {
-  //   return this.httpClient.get<SaldoResponse>(
-  //     this.BASE_URL + `/saldo/${this.loginService.usuarioLogado.id}`,
-  //     this.httpOptions);
-  // }
+  depositar(valor: number): Observable<SaldoResponse> | null {
+    return this.httpClient.put<SaldoResponse>(
+      this.BASE_URL + `/depositar/${this.loginService.usuarioLogado.id}`,
+      {valor},
+      this.httpOptions);
+  }
+
+  sacar(valor: number): Observable<SaldoResponse> | null {
+    return this.httpClient.put<SaldoResponse>(
+      this.BASE_URL + `/sacar/${this.loginService.usuarioLogado.id}`,
+      {valor},
+      this.httpOptions);
+  }
 
   getExtrato(): Observable<Array<Transaction>> {
     return this.httpClient.get<Array<Transaction>>(
@@ -55,6 +66,12 @@ export class ClientService {
       this.httpOptions);
   }
 
+  transferir(valor: number, id: number): Observable<any> | null {
+    return this.httpClient.put<any>(
+      this.BASE_URL + `/transferir/${this.loginService.usuarioLogado.id}/${id}`,
+      {valor},
+      this.httpOptions);
+  }
 }
 
 export default interface SaldoResponse {
