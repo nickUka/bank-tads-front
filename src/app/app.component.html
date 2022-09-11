@@ -7,36 +7,36 @@
       <div *ngIf="usuarioLogado" class="navbar-collapse collapsed justify-content-end" id="navbarContent">
         <ul class="navbar-nav ml-auto">
           <!-- telas de cliente -->
-           <li *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item">
+           <li *ngIf="usuarioLogado.perfil==='cliente'" class="nav-item">
             <a class="nav-link" href="#" routerLink="/client/tela-inicial">Home Cliente</a>
            </li>
-           <li *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item">
+           <li *ngIf="usuarioLogado.perfil==='cliente'" class="nav-item">
             <a class="nav-link" href="#" routerLink="client/consultar-extrato">Consultar Extrato</a>
            </li>
-           <li *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item">
+           <li *ngIf="usuarioLogado.perfil==='cliente'" class="nav-item">
             <a class="nav-link" href="#" routerLink="/client/depositar">Depositar</a>
            </li>
-           <li *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item">
+           <li *ngIf="usuarioLogado.perfil==='cliente'" class="nav-item">
             <a class="nav-link" href="#" routerLink="/client/sacar">Sacar</a>
            </li>
-           <li *ngIf="usuarioLogado.perfil==='CLIENTE'" class="nav-item">
+           <li *ngIf="usuarioLogado.perfil==='cliente'" class="nav-item">
             <a class="nav-link" href="#" routerLink="/client/transferir">Transferir</a>
            </li>
           <!-- telas de gerente -->
-          <li *ngIf="usuarioLogado.perfil==='GERENTE'" class="nav-item">
+          <li *ngIf="usuarioLogado.perfil==='gerente'" class="nav-item">
            <a class="nav-link" href="#" routerLink="/gerente/tela-inicial">Home Gerente</a>
           </li>
-          <li *ngIf="usuarioLogado.perfil==='GERENTE'" class="nav-item">
+          <li *ngIf="usuarioLogado.perfil==='gerente'" class="nav-item">
             <a class="nav-link" href="#" routerLink="/gerente/consultar-cliente">Consultar Cliente</a>
           </li>
-          <li *ngIf="usuarioLogado.perfil==='GERENTE'" class="nav-item">
+          <li *ngIf="usuarioLogado.perfil==='gerente'" class="nav-item">
             <a class="nav-link" href="#" routerLink="/gerente/consultar-cinco">Consultar 5 melhores Clientes</a>
           </li>
           <!-- telas de admin -->
-          <li *ngIf="usuarioLogado.perfil==='ADMIN'" class="nav-item">
+          <li *ngIf="usuarioLogado.perfil==='admin'" class="nav-item">
             <a class="nav-link" href="#" routerLink="/admin/tela-inicial">Home Admin</a>
           </li>
-          <li *ngIf="usuarioLogado.perfil==='ADMIN'" class="nav-item">
+          <li *ngIf="usuarioLogado.perfil==='admin'" class="nav-item">
             <a class="nav-link" href="#" routerLink="/admin/listar-gerente">CRUD de Gerente</a>
           </li>
         </ul>
@@ -46,8 +46,7 @@
           </li>
           <li class="nav-item">
             <p class="navbar-text mb-0 text-white">
-              <i class="fa fa-user"></i> {{ usuarioLogado.login }}
-            </p>
+              <i class="fa fa-user"></i>
           </li>
         </ul>
       </div><br>
