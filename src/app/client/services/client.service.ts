@@ -16,11 +16,7 @@ export class ClientService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-<<<<<<< HEAD
       'x-access-token': this.loginService.usuarioLogado?.token ?? ''
-=======
-      'x-access-token': this.loginService.usuarioLogado?.token??""
->>>>>>> 15695e48a800c199d4c9732b1393bd01077e3ea9
     })
   };
 
@@ -70,21 +66,19 @@ export class ClientService {
       this.httpOptions);
   }
 
-<<<<<<< HEAD
   transferir(valor: number, id: number): Observable<any> | null {
     return this.httpClient.put<any>(
       this.BASE_URL + `/transferir/${this.loginService.usuarioLogado.id}/${id}`,
       {valor},
       this.httpOptions);
   }
-=======
+  
   cadastrar(cliente: Client): Observable<Client>{
     return this.httpClient.post<Client>(this.BASE_URL + `/autocadastro`, 
       JSON.stringify(cliente),
       this.httpOptions);
   }
 
->>>>>>> 15695e48a800c199d4c9732b1393bd01077e3ea9
 }
 
 export default interface SaldoResponse {
