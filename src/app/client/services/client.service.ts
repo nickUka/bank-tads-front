@@ -72,7 +72,7 @@ export class ClientService {
       {valor},
       this.httpOptions);
   }
-  
+
   cadastrar(cliente: Client): Observable<Client>{
     return this.httpClient.post<Client>(this.BASE_URL + `/autocadastro`, 
       JSON.stringify(cliente),
