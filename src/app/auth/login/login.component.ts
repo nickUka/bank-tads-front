@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,) { 
       if(this.loginService.usuarioLogado){
-        if(this.loginService.usuarioLogado.perfil === 'CLIENTE'){
+        if(this.loginService.usuarioLogado.perfil === 'cliente'){
           this.router.navigate(["/client/tela-inicial"]);
-        }if(this.loginService.usuarioLogado.perfil === 'GERENTE'){
+        }if(this.loginService.usuarioLogado.perfil === 'gerente'){
           this.router.navigate(["/gerente/tela-inicial"]);
-        }if(this.loginService.usuarioLogado.perfil === 'ADMIN'){
+        }if(this.loginService.usuarioLogado.perfil === 'admin'){
           this.router.navigate(["/admin/tela-inicial"]);
         }
       }
