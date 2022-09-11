@@ -45,17 +45,3 @@ export class Admin extends User {
         super(id, nome, login, perfil, password);
     }
 }
-export class Gerente extends User {
-    constructor(
-        id?: number,
-        nome?: string,
-        login?: string,
-        perfil?: Profile,
-        password?: string,
-        tipo?: string,
-        public email?: string,
-        public cpf?: string,
-    ) {
-        super(id, nome, login, perfil, password);
-    }
-}

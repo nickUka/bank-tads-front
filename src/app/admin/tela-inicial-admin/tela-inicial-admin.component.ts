@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Gerente } from 'src/app/shared';
+import { Gerente } from 'src/app/shared/models/gerente.model';
 import { AdminService } from '../services/admin.service';
 
 @Component({
@@ -23,8 +23,7 @@ export class TelaInicialAdminComponent implements OnInit {
   }
 
   listarTodos(): Gerente[] {
-    this.adminService.listarGerentes().subscribe({
-      next: (data: Gerente[]) => {
+    this.adminService.listarGerentes().subscribe( (data: Gerente[]) => {
         if (data == null) {
           this.gerentes = [];
         }
@@ -32,7 +31,7 @@ export class TelaInicialAdminComponent implements OnInit {
           this.gerentes = data;
         }
       }
-    });
+    );
     return this.gerentes;
   }
 
