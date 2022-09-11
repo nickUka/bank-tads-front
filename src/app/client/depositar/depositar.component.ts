@@ -10,9 +10,10 @@ import SaldoResponse, { ClientService } from '../services/client.service';
 })
 export class DepositarComponent implements OnInit {
 
-  @ViewChild('formDeposito') formDeposito! : NgForm;
+  @ViewChild('formDeposito') formDeposito!: NgForm;
 
   public saldo?: SaldoResponse;
+  public valorDeposito: number = 0;
   loading: boolean = false;
   message?: string;
 
@@ -22,27 +23,32 @@ export class DepositarComponent implements OnInit {
     this.getSaldo();
   }
 
-  // depositar(valor: String){
-  //   if(this.formDeposito.form.valid){
-  //     var novoValor = Number(this.salario);
-  //     var valorDep = Number(valor);
-  //     var res = novoValor + valorDep;
-  //     this.salario = res.toString();
-  //   }
-  // }
+  depositar() {
+    if(this.formDeposito.form.valid){
+    this.clientService.depositar(this.valorDeposito)?.subscribe((res) => {
+      if (res) {
+        return;
+      } else {
+        this.message = 'Erro';
+      }
+    }
+    );   
+
+    window.location.reload();
+  }}
 
   getSaldo(): void {
     this.loading = true;
-      this.clientService.getSaldo()?.subscribe((res) => {
-        if (res) {
-          console.log(res);
-          this.saldo = res;
-          this.loading = false;         
-        }
-        else {
-          this.message = "Erro";
-        }
-      });
+    this.clientService.getSaldo()?.subscribe((res) => {
+      if (res) {
+        console.log(res);
+        this.saldo = res;
+        this.loading = false;
+      }
+      else {
+        this.message = "Erro";
+      }
+    }).closed;
     this.loading = false;
   }
 }
