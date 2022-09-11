@@ -1,4 +1,4 @@
-import { Profile } from "..";
+import { Endereco, Profile } from "..";
 
 export abstract class User {
     constructor(
@@ -29,6 +29,7 @@ export class Client extends User {
         public rua?: string,
         public numero?: number,
         public cep?: string,
+        public endereco?: Endereco
     ) {
         super(id, nome, login, perfil, password);
     }
