@@ -1,6 +1,6 @@
 <br><h1 style="margin-left: 10px">Extrato</h1>
 
-<br><h2 style="margin-left: 10px">Saldo: {{cliente.salario | currency:'BRL'}}</h2>
+<br><h2 style="margin-left: 10px">Saldo: {{saldo?.saldo | currency:'BRL'}}</h2>
 <table class="table table-striped table-bordered table-hover">
     <tbody>
         <br>
@@ -12,20 +12,20 @@
             <th>Cliente Destino</th>
             <th>Valor</th>
         </tr>
-        <tr *ngFor="let transaction of extract">
-            <td> {{transaction.date | mask:'d0/M0/0000'}} </td>
-            <td> {{transaction.hour | mask:'99:99:99'}} </td>
-            <td> {{transaction.operation}} </td>
-            <td *ngIf="transaction.operation === 'transferência'"> {{transaction.origin}} </td>
-            <td *ngIf="transaction.operation !== 'transferência'"> - </td>
-            <td *ngIf="transaction.operation === 'transferência'"> {{transaction.destiny}} </td>
-            <td *ngIf="transaction.operation !== 'transferência'"> - </td>
-            <td *ngIf="transaction.operation === 'saque'" style="color: red;"> {{transaction.value | currency:'BRL'}} </td>
-            <td *ngIf="transaction.operation === 'depósito'" style="color: blue;"> {{transaction.value | currency:'BRL'}} </td>
-            <td *ngIf="transaction.origin === cliente.conta && transaction.operation === 'transferência'" style="color: red;"> {{transaction.value | currency:'BRL'}} </td>
-            <td *ngIf="transaction.origin !== cliente.conta && transaction.operation === 'transferência'" style="color: blue;"> {{transaction.value | currency:'BRL'}} </td>
+        <tr *ngFor="let transaction of extrato">
+            <td> {{transaction.dataHora| date:'dd/MM/yyyy'}} </td>
+            <td> {{transaction.dataHora | date:'HH:mm:ss'}} </td>
+            <td> {{transaction.tipoMovimentacao}} </td>
+            <td *ngIf="transaction.tipoMovimentacao === 'TRANSFERENCIA'"> {{transaction.idClienteOrigem}} </td>
+            <td *ngIf="transaction.tipoMovimentacao !== 'TRANSFERENCIA'"> - </td>
+            <td *ngIf="transaction.tipoMovimentacao === 'TRANSFERENCIA'"> {{transaction.idClienteDestino}} </td>
+            <td *ngIf="transaction.tipoMovimentacao !== 'TRANSFERENCIA'"> - </td>
+            <td *ngIf="transaction.tipoMovimentacao === 'SAQUE'" style="color: red;"> - {{transaction.valor | currency:'BRL'}} </td>
+            <td *ngIf="transaction.tipoMovimentacao === 'DEPOSITO'" style="color: blue;"> {{transaction.valor | currency:'BRL'}} </td>
+            <td *ngIf="transaction.valor < 0 && transaction.tipoMovimentacao === 'TTRANSFERENCIA'" style="color: red;"> - {{transaction.valor | currency:'BRL'}} </td>
+            <td *ngIf="transaction.valor >= 0 && transaction.tipoMovimentacao === 'RANSFERENCIA'" style="color: blue;"> {{transaction.valor | currency:'BRL'}} </td>
         </tr>
     </tbody>
 </table>
 
-<p *ngIf="extract.length==0">Nenhuma operação realizada.</p>
+<p *ngIf=" extrato && extrato.length==0">Nenhuma operação realizada.</p>

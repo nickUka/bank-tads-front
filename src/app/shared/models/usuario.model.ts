@@ -1,6 +1,7 @@
 export default class Usuario {
     constructor(
-        public auth: string,
+        public id: number,
+        public auth: boolean,
         public perfil: string,
         public token: string,
     ) {}

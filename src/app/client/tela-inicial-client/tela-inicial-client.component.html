@@ -1,18 +1,18 @@
 <br><div class="d-flex justify-content-center">
-    <h1>Bem Vindo(a) {{nome}}</h1>
+    <h1>Bem Vindo(a)</h1>
 </div><br>
 <div class="d-flex justify-content-center">
     <h2>Seu saldo atual é de: </h2>
 </div><br>
-<div class="d-flex justify-content-center" style="color: red;">
-    <h2> - {{salario | currency:'BRL'}}</h2> 
-</div>
-<div class="d-flex justify-content-center">
-    <h2> {{salario | currency:'BRL'}}</h2> 
+<div  *ngIf="saldo && saldo.saldo < 0" class="d-flex justify-content-center" style="color: red;">
+    <h2> - {{saldo.saldo| currency:'BRL'}}</h2> 
+</div><br>
+<div  *ngIf="saldo && saldo.saldo >= 0" class="d-flex justify-content-center" >
+    <h2> {{saldo.saldo| currency:'BRL'}}</h2> 
 </div><br>
 <div class="d-flex justify-content-center">
     <h2>Seu limite é de: </h2>
 </div><br>
-<div class="d-flex justify-content-center">
-    <h2> {{limite | currency:'BRL'}}</h2> 
+<div *ngIf="saldo" class="d-flex justify-content-center">
+    <h2> {{saldo.limite| currency:'BRL'}}</h2> 
 </div>

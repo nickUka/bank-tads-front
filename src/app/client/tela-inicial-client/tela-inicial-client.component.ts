@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Client, Profile } from 'src/app/shared';
-import { ClientService } from '../services/client.service';
+import SaldoResponse, { ClientService } from '../services/client.service';
 
 @Component({
   selector: 'app-tela-inicial-client',
@@ -9,21 +9,28 @@ import { ClientService } from '../services/client.service';
 })
 export class TelaInicialClientComponent implements OnInit {
 
-  clientes: Client[] = [];
-
-  cliente: Client = new Client(1, 'Ana', 'email@email.com', Profile.Cliente, '', '123', 'email@email.com', '12312312312', '4000', '2000');
-
-
-  public nome: string = "";
-  public salario: string = "";
-  public limite: string = "";
+  saldo?: SaldoResponse;
+  loading: boolean = false;
+  message!: string;
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
-    this.nome = this.cliente.nome!;
-    this.salario = this.cliente.salario!;
-    this.limite = this.cliente.limite!;
+    this.getSaldo();
   }
 
+  getSaldo(): void {
+    this.loading = true;
+      this.clientService.getSaldo()?.subscribe((res) => {
+        if (res) {
+          console.log(res);
+          this.saldo = res;
+          this.loading = false;         
+        }
+        else {
+          this.message = "Erro";
+        }
+      });
+    this.loading = false;
+  }
 }
