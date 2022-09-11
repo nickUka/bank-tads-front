@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Login } from 'src/app/shared';
-import { Usuario } from 'src/app/shared/models/usuario.model';
+import Usuario from 'src/app/shared/models/usuario.model';
 
 
 const LS_CHAVE: string = "usuarioLogado";
@@ -13,7 +13,7 @@ const LS_CHAVE: string = "usuarioLogado";
 
 export class LoginService {
 
-  BASE_URL = "http://localhost:8080/login/";
+  BASE_URL = "http://localhost:3000/auth/login";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -37,6 +37,8 @@ export class LoginService {
   }
 
   login(login: Login): Observable<Usuario | null> {
+    console.log(login);
+
     return this.httpClient.post<Usuario>(this.BASE_URL, 
       login, 
       this.httpOptions); 

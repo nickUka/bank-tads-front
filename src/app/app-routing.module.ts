@@ -33,7 +33,7 @@ const routes: Routes = [
     component: TelaInicialGerComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'GERENTE'
+      role: 'gerente'
     }
   },
   {
@@ -41,7 +41,7 @@ const routes: Routes = [
     component: ConsultarClienteComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'GERENTE'
+      role: 'gerente'
     }
   },
   {
@@ -49,7 +49,7 @@ const routes: Routes = [
     component: ConsultarCincoMelhoresComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'GERENTE'
+      role: 'gerente'
     }
   },
   {
@@ -57,7 +57,7 @@ const routes: Routes = [
     component: ListarGerentesComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'ADMIN'
+      role: 'admin'
     }
   },
   {
@@ -65,7 +65,7 @@ const routes: Routes = [
     component: InserirGerenteComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'ADMIN'
+      role: 'admin'
     }
   },
   {
@@ -73,7 +73,7 @@ const routes: Routes = [
     component: EditarGerenteComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'ADMIN'
+      role: 'admin'
     }
   },
   {
@@ -81,7 +81,7 @@ const routes: Routes = [
     component: TelaInicialAdminComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'ADMIN'
+      role: 'admin'
     }
   },
   {
@@ -89,7 +89,7 @@ const routes: Routes = [
     component: TelaInicialClientComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'CLIENTE'
+      role: 'cliente'
     }
   },
   {
@@ -97,7 +97,7 @@ const routes: Routes = [
     component: ConsultarExtratoComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'CLIENTE'
+      role: 'cliente'
     }
   },
   {
@@ -105,7 +105,7 @@ const routes: Routes = [
     component: DepositarComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'CLIENTE'
+      role: 'cliente'
     }
   },
   {
@@ -113,7 +113,7 @@ const routes: Routes = [
     component: SacarComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'CLIENTE'
+      role: 'cliente'
     }
   },
   {
@@ -121,7 +121,7 @@ const routes: Routes = [
     component: TransferirComponent,
     canActivate: [AuthGuard],
     data: {
-      role: 'CLIENTE'
+      role: 'cliente'
     }
   },
   ...LoginRoutes

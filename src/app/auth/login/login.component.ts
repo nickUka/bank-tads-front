@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Login } from 'src/app/shared';
+import Usuario from 'src/app/shared/models/usuario.model';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -41,14 +42,16 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     if (this.formLogin.form.valid) {
       this.loginService.login(this.login).subscribe((user) => {
-        if (user != null) {
+        if (user) {
           this.loginService.usuarioLogado = user;
           this.loading = false;
-          if(this.loginService.usuarioLogado.perfil === 'CLIENTE'){
+          const loggedUser: Usuario = this.loginService.usuarioLogado;
+
+          if(loggedUser.perfil === 'cliente'){
             this.router.navigate(["/client/tela-inicial"]);
-          }if(this.loginService.usuarioLogado.perfil === 'GERENTE'){
+          }if(loggedUser.perfil === 'gerente'){
             this.router.navigate(["/gerente/tela-inicial"]);
-          }if(this.loginService.usuarioLogado.perfil === 'ADMIN'){
+          }if(loggedUser.perfil === 'admin'){
             this.router.navigate(["/admin/tela-inicial"]);
           }
         }

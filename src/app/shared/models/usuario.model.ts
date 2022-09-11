@@ -1,10 +1,8 @@
-export class Usuario {
+export default class Usuario {
     constructor(
-        public id?: number,
-        public nome?: string,
-        public login?: string,
-        public senha?: string, 
-        public perfil?: string
+        public auth: string,
+        public perfil: string,
+        public token: string,
     ) {}
 }
 
