@@ -1,4 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { LoginService } from 'src/app/auth/services/login.service';
 
 import { Gerente } from 'src/app/shared/models/gerente.model';
 
@@ -8,7 +11,16 @@ const LS_CHAVE: string = "gerentes";
 })
 export class AdminService {
 
-  constructor() { }
+  BASE_URL = "http://localhost:3000/admin/";
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-access-token': this.loginService.usuarioLogado.token
+    })
+  };
+
+  constructor(private httpClient: HttpClient, private loginService: LoginService) { }
 
   listarTodos(): Gerente[] {
     const gerentes = localStorage[LS_CHAVE];
@@ -16,54 +28,30 @@ export class AdminService {
     return gerentes ? JSON.parse(gerentes) : [];
   }
 
-  inserir(gerente: Gerente): void{
-    //obtém a lista
-    const gerentes = this.listarTodos();
-
-    //seta o id baseado na data
-    gerente.id = new Date().getTime();
-
-    //add no fim da lista
-    gerentes.push(gerente);
-    
-    //armazena no local storage
-    localStorage[LS_CHAVE] = JSON.stringify(gerentes);
+  listarGerentes(): Observable<Gerente[]> {
+    return this.httpClient.get<Gerente[]>(this.BASE_URL +`gerentes/${this.loginService.usuarioLogado.id}`,
+    this.httpOptions);
   }
 
-  buscarPorId(id: number): Gerente | undefined{
-    //obtém a lista
-    const gerentes: Gerente[] = this.listarTodos();
-
-    //efetua a busca
-    //find(): retorna o primeiro elemento da lista que satisfaz a condição, se não, retorna undefined
-    return gerentes.find(gerente => gerente.id === id);
+  inserir(gerente: Gerente): Observable<Gerente> {
+    return this.httpClient.post<Gerente>(this.BASE_URL,
+    JSON.stringify(gerente), 
+    this.httpOptions);
   }
 
-  atualizar(gerente: Gerente): void{
-    //obtém a lista
-    const gerentes: Gerente[] = this.listarTodos();
-
-    //varre a lista
-    //quando encontra alguém com o mesmo id atualiza
-    gerentes.forEach( (obj, index, objs) => {
-      if(gerente.id === obj.id){
-        objs[index] = gerente
-      }
-    });
-
-    //armazena no local storage
-    localStorage[LS_CHAVE] = JSON.stringify(gerentes);
+  buscarPorId(id: number): Observable<Gerente> {
+    return this.httpClient.get<Gerente>(this.BASE_URL + `gerentes/${this.loginService.usuarioLogado.id}` +id, 
+    this.httpOptions);
   }
 
-  remover(id: number): void{
-    //obtém a lista
-    //let deixa alterar
-    let gerentes: Gerente[] = this.listarTodos();
+  atualizar(gerente: Gerente): Observable<Gerente> {
+    return this.httpClient.put<Gerente>(this.BASE_URL + `gerentes/` +gerente.id, 
+    JSON.stringify(gerente), 
+    this.httpOptions);
+  }
 
-    //retorna a lista, com todos os objetos que satisfazem a condição (todos menos o id a remover)
-    gerentes = gerentes.filter(gerente => gerente.id !== id);
-
-    //atualiza a lista de pessoas
-    localStorage[LS_CHAVE] = JSON.stringify(gerentes);
+  remover(id: number): Observable<Gerente> {
+    return this.httpClient.delete<Gerente>(this.BASE_URL + id,
+    this.httpOptions);
   }
 }

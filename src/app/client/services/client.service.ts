@@ -16,7 +16,7 @@ export class ClientService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'x-access-token': this.loginService.usuarioLogado.token
+      'x-access-token': this.loginService.usuarioLogado?.token??""
     })
   };
 
@@ -52,6 +52,12 @@ export class ClientService {
   getExtrato(): Observable<Array<Transaction>> {
     return this.httpClient.get<Array<Transaction>>(
       this.BASE_URL + `/extrato/${this.loginService.usuarioLogado.id}`,
+      this.httpOptions);
+  }
+
+  cadastrar(cliente: Client): Observable<Client>{
+    return this.httpClient.post<Client>(this.BASE_URL + `/autocadastro`, 
+      JSON.stringify(cliente),
       this.httpOptions);
   }
 

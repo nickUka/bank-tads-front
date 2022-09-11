@@ -15,19 +15,28 @@ export class EditarGerenteComponent implements OnInit {
 
   @ViewChild('formGerente') formGerente! : NgForm;
   gerente!: Gerente;
+  loading!: boolean;
+  novoGerente: boolean = true;
   
   constructor(private adminService: AdminService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit(): void {
+    this.gerente = new Gerente();
+    this.loading = false;
      // snapshot.params de ActivatedRoute dá acesso aos parâmetros passados
     // Operador + (antes do this) converte para número
-    let id = +this.route.snapshot.params['id'];
+    let id = this.route.snapshot.params['id'];
+    this.novoGerente = !id;
     // Com o id, obtém a pessoa
-    const res = this.adminService.buscarPorId(id);
-    if (res !== undefined)
-      this.gerente = res;
+    if (!this.novoGerente){
+      this.adminService.buscarPorId(+id).subscribe(
+        gerente => {
+          this.gerente = gerente;
+        }
+      )
+    }
     else
       throw new Error ("Gerente não encontrado: id = " + id);
   }
@@ -36,10 +45,14 @@ export class EditarGerenteComponent implements OnInit {
     // Verifica se o formulário é válido
     if (this.formGerente.form.valid) {
       // Efetivamente atualiza a pessoa
-      this.adminService.atualizar(this.gerente);
-      // Redireciona para /pessoas/listar
-      this.router.navigate(['/admin/listar-gerente']);
+      this.adminService.atualizar(this.gerente).subscribe(
+        gerente => {
+          this.loading = false;
+          this.router.navigate(['/admin/listar-gerente']);
+        }
+      );
     }
+    this.loading = false;
   }
 
 }
