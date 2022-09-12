@@ -33,9 +33,9 @@ export class TelaInicialGerComponent implements OnInit {
   reprovar(client: Client){
     if(confirm(`Recusar ${client.nome} ?`)){
       this.gerenteService.recusar(client.id)?.subscribe((res)=>{
-      if(res){
+      
         window.location.reload();
-      }
+      
     })}
   }
 
@@ -43,9 +43,7 @@ export class TelaInicialGerComponent implements OnInit {
     if(confirm(`Aprovar ${client.nome} ?`)){
       console.log(client.id)
       this.gerenteService.aprovar(client.id)?.subscribe((res)=>{
-      if(res){
         window.location.reload();
-      }
     })}
   }
 
