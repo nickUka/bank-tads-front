@@ -29,7 +29,7 @@ export class AdminService {
   }
 
   listarGerentes(): Observable<Gerente[]> {
-    return this.httpClient.get<Gerente[]>(this.BASE_URL +`gerentes/${this.loginService.usuarioLogado.id}`,
+    return this.httpClient.get<Gerente[]>(this.BASE_URL +`gerentes`,
     this.httpOptions);
   }
 

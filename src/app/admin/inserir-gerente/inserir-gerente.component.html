@@ -25,10 +25,10 @@
 				#email="ngModel"
 				required> 
 			<div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
-				<div [hidden]="!email.errors?.['required']"> 
+				<div [hidden]="email?.errors?.['required']"> 
 					Digite o email do gerente. 
 				</div>
-				<div [hidden]="!email.errors?.['pattern']"> 
+				<div [hidden]="email?.errors?.['pattern']"> 
 					Digite um email válido. 
 				</div>
 			</div>
@@ -43,10 +43,10 @@
 					minlength="11"
 					required> 	
 				<div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="alert alert-danger">
-					<div [hidden]="!cpf.errors?.['required']"> 
+					<div [hidden]="cpf?.errors?.['required']"> 
 						Digite o CPF do gerente. 
 					</div>
-					<div [hidden]="!cpf.errors?.['minlength' || 'maxlength']"> 
+					<div [hidden]="cpf?.errors?.['minlength' || 'maxlength']"> 
 						O CPF deve conter 11 dígitos. 
 					</div>
 				</div>
