@@ -10,7 +10,7 @@
     	<th>Autorização</th>
     </tr>
     <tr *ngFor="let client of clients">
-      <td> {{client.nome}} </td>
+      <div *ngIf="client.status === 'PENDENTE'"><td> {{client.nome}} </td>
       <td> {{client.cpf! | cpfPipe}} </td>
       <td> {{client.salario | currency:'BRL'}} </td>
       <td class="text-center" style="width: 300px">
@@ -23,7 +23,7 @@
           (click)="reprovar(client)" >
           <i class="fa fa-times" aria-hidden="true"></i> Recusar
         </button>      
-      </td>
+      </td></div>
     </tr>
   </tbody>
 </table>

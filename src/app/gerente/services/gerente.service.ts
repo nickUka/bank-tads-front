@@ -19,7 +19,7 @@ export class GerenteService {
   };
 
   constructor(private httpClient: HttpClient, private loginService: LoginService,) { 
-    console.log(this.loginService.usuarioLogado?.token ?? '');
+    console.log(this.loginService.usuarioLogado?.token ?? '')
   }
 
   consultarClient(cpf: string): Observable<any> {
@@ -38,16 +38,12 @@ export class GerenteService {
   }
 
   aprovar(id?: number): Observable<any> | void {
-      
-      console.log(id);
-      console.log(this.loginService.usuarioLogado?.token ?? '');
-
-      return this.httpClient.put<any>(this.BASE_URL+`aprova/${id}`,
-    this.httpOptions);
+    if(id){ return this.httpClient.put<any>(this.BASE_URL+`aprova/${id}`,undefined,
+    this.httpOptions);}
   }
 
   recusar(id?: number): Observable<any> | void {
-   if(id){ return this.httpClient.put<any>(this.BASE_URL+`reprova/${id}`,
+   if(id){ return this.httpClient.put<any>(this.BASE_URL+`reprova/${id}`, undefined,
     this.httpOptions);}
   } 
 }

@@ -32,6 +32,7 @@ export class Client extends User {
         public numero?: number,
         public cep?: string,
         public saldo?: number,
+        public status?: string,
         public endereco?: Endereco
     ) {
         super(id, nome, login, perfil, password);
