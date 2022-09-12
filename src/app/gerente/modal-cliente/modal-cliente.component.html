@@ -8,14 +8,14 @@
 
 <div class="modal-body text-center">
     <div>
-        <p>Nome: {{client.nome}}</p>
-        <p>Email: {{client.email}}</p>
-        <p>CPF:  {{client.cpf ?? '' | mask: '000.000.000-00'}}</p>
-        <p>Endereço: {{client.rua}}, {{client.numero}}</p>
-        <p>Salário: </p>
-        <p>Conta: </p>
-        <p>Data de criação da conta:</p>
-        <p>Limite: </p>
+        <p>Nome: {{client.cliente.nome}}</p>
+        <p>Email: {{client.cliente.email}}</p>
+        <p>CPF:  {{client.cliente.cpf ?? '' | mask: '000.000.000-00'}}</p>
+        <p>Endereço: {{client.cliente.endereco.tipo}} {{client.cliente.endereco.logradouro}}, {{client.cliente.endereco.numero}} - {{client.cliente.endereco.cep | mask: '00.000-00'}}</p>
+        <p>Salário: {{client.conta.salario | currency:'BRL'}}</p>
+        <p>Conta: {{client.conta.numero}}</p>
+        <p>Data de criação da conta: {{client.conta.dataCriacao | date: 'dd/MM/yyyy'}}</p>
+        <p>Limite: {{client.conta.limite | currency:'BRL'}}</p>
     </div>
 </div>
 

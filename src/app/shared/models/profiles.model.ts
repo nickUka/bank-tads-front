@@ -17,11 +17,13 @@ export class Client extends User {
         login?: string,
         perfil?: Profile,
         password?: string,
+        public idGerente?: number,
+        public idCliente?: number,
         public conta?: string,
         public email?: string,
         public cpf?: string,
-        public salario?: string,
-        public limite?: string,
+        public salario?: number,
+        public limite?: number,
         public cidade?: string,
         public estado?: string,
         public logradouro?: string,
@@ -29,6 +31,7 @@ export class Client extends User {
         public rua?: string,
         public numero?: number,
         public cep?: string,
+        public saldo?: number,
         public endereco?: Endereco
     ) {
         super(id, nome, login, perfil, password);

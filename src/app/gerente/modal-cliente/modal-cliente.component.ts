@@ -8,7 +8,7 @@ import { Client } from 'src/app/shared';
   styleUrls: ['./modal-cliente.component.css']
 })
 export class ModalClienteComponent implements OnInit {
-  @Input() client!: Client;
+  @Input() client!: any;
 
   constructor(public activeModal: NgbActiveModal) { }
 

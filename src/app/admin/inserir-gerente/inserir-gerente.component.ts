@@ -33,7 +33,7 @@ export class InserirGerenteComponent implements OnInit {
       this.gerente.senha = this.gerente.email;
 
       this.adminService.inserir(this.gerente).subscribe(
-        gerente => {
+        (gerente) => {
           this.loading = false;
           this.router.navigate( ["/admin/listar-gerente"] );
         }
