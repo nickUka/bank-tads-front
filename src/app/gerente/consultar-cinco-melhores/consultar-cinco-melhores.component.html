@@ -16,7 +16,7 @@
         <td> {{client.estado}} </td>
         <td> {{client.salario}} </td>
         <td style="width: 150px">
-          <button type="button" class="btn btn-xs btn-primary" (click)="abrirModalConsulta(client)">
+          <button type="button" class="btn btn-xs btn-primary" (click)="abrirModalConsulta(client.cpf ??'')">
             <i class="fa-solid fa-eye"></i> Consultar
           </button>
         </td>

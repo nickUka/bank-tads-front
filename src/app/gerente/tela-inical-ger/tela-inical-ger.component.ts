@@ -1,6 +1,6 @@
 import { Component, OnInit, LOCALE_ID } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Client } from 'src/app/shared/models/client.model';
+import { Client } from 'src/app/shared';
 import { ModalRecusarComponent } from '../modal-recusar/modal-recusar.component';
 import { GerenteService } from '../services/gerente.service';
 
@@ -17,20 +17,36 @@ export class TelaInicialGerComponent implements OnInit {
               private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.clients = this.listarTodos();
+    this.listarTodos();
   }
 
-  listarTodos(): Client[] {
-    return[
-      new Client("ana", "email", "12312312330", '10000'),
-      new Client("nick", "email", "12312312330", '7000')
-    ]
+  listarTodos(): void{
+    this.gerenteService.getClients().subscribe((clients)=>{
+      if(clients){
+        console.log('teste');
+        this.clients = clients.clientesConta;
+      }else{
+        confirm('Erro');
+      }
+    });
   }
 
+  reprovar(client: Client){
+    if(confirm(`Recusar ${client.nome} ?`)){
+      this.gerenteService.recusar(client.id)?.subscribe((res)=>{
+      if(res){
+        window.location.reload();
+      }
+    })}
+  }
 
-  abrirModalRecusar(client: Client){
-    const modalRef = this.modalService.open(ModalRecusarComponent);
-    modalRef.componentInstance.client = client;
+  aprovar(client: Client){
+    if(confirm(`Aprovar ${client.nome} ?`)){
+      this.gerenteService.aprovar(client.id)?.subscribe((res)=>{
+      if(res){
+        window.location.reload();
+      }
+    })}
   }
 
 }

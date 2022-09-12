@@ -14,11 +14,13 @@
       <td> {{client.cpf! | cpfPipe}} </td>
       <td> {{client.salario | currency:'BRL'}} </td>
       <td class="text-center" style="width: 300px">
-				<button type="button" class="btn btn-xs btn-info" >
+				<button type="button" class="btn btn-xs btn-info"
+        (click)="aprovar(client)"
+        >
           <i class="fa fa-edit" aria-hidden="true"></i> Aprovar
         </button>
 				<button type="button" class="btn btn-xs btn-danger"
-          (click)="abrirModalRecusar(client)" >
+          (click)="reprovar(client)" >
           <i class="fa fa-times" aria-hidden="true"></i> Recusar
         </button>      
       </td>
@@ -26,4 +28,4 @@
   </tbody>
 </table>
 
-<p *ngIf="clients.length==0">Nenhuma autocadastro realizado.</p>
+<p *ngIf="!clients">Nenhuma autocadastro realizado.</p>
