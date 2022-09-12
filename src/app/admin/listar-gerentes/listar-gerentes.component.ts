@@ -37,8 +37,11 @@ export class ListarGerentesComponent implements OnInit {
     $event.preventDefault();
     if (confirm(`Deseja realmente remover o gerente ${gerente.nome}?`)) {
       this.adminService.remover(gerente.id!).subscribe({
-          complete: () => { this.listarTodos(); }
+          complete: () => {             
+            this.listarTodos(); 
+          }
         });
+        window.location.reload();
     }
   }
 
