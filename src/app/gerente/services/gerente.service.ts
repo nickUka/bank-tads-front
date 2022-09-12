@@ -14,11 +14,13 @@ export class GerenteService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'x-access-token': this.loginService.usuarioLogado.token
+      'x-access-token': this.loginService.usuarioLogado?.token ?? ''
     })
   };
 
-  constructor(private httpClient: HttpClient, private loginService: LoginService,) { }
+  constructor(private httpClient: HttpClient, private loginService: LoginService,) { 
+    console.log(this.loginService.usuarioLogado?.token ?? '');
+  }
 
   consultarClient(cpf: string): Observable<any> {
     return this.httpClient.get<any>(this.BASE_URL+`clientes/${cpf}`,
@@ -36,12 +38,16 @@ export class GerenteService {
   }
 
   aprovar(id?: number): Observable<any> | void {
-    if(id){ return this.httpClient.get<any>(this.BASE_URL+`aprova/${id}`,
-    this.httpOptions);}
+      
+      console.log(id);
+      console.log(this.loginService.usuarioLogado?.token ?? '');
+
+      return this.httpClient.put<any>(this.BASE_URL+`aprova/${id}`,
+    this.httpOptions);
   }
 
   recusar(id?: number): Observable<any> | void {
-   if(id){ return this.httpClient.get<any>(this.BASE_URL+`reprova/${id}`,
+   if(id){ return this.httpClient.put<any>(this.BASE_URL+`reprova/${id}`,
     this.httpOptions);}
   } 
 }

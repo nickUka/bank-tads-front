@@ -25,6 +25,16 @@ export class ConsultarClienteComponent implements OnInit {
     modalRef.componentInstance.client = client;
   }
 
+  abrirModal(cpf: string) {
+    this.gerenteService.consultarClient(cpf).subscribe((res)=>{
+      if(res){
+        this.abrirModalConsulta(res);
+      }else{
+        confirm('Erro');
+      }
+    });
+  }
+
   buscarClientePorCpf(): void {
     console.log(this.cpf);
       this.gerenteService.consultarClient(this.cpf).subscribe((res)=>{
