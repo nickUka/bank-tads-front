@@ -25,9 +25,9 @@
         <td> {{client.cpf! | cpfPipe}} </td>
         <td> {{client.cidade}} </td>
         <td> {{client.estado}} </td>
-        <td> {{client.salario}} </td>
+        <td> {{client.saldo | currency:'BRL'}} </td>
         <td style="width: 150px">
-          <button type="button" class="btn btn-xs btn-primary" (click)="abrirModalConsulta(client)">
+          <button type="button" class="btn btn-xs btn-primary" (click)="abrirModal(client.cpf ?? '')">
             <i class="fa-solid fa-eye"></i> Consultar
           </button>
         </td>

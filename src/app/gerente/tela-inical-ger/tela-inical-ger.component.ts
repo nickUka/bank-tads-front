@@ -23,7 +23,6 @@ export class TelaInicialGerComponent implements OnInit {
   listarTodos(): void{
     this.gerenteService.getClients().subscribe((clients)=>{
       if(clients){
-        console.log('teste');
         this.clients = clients.clientesConta;
       }else{
         confirm('Erro');
@@ -42,6 +41,7 @@ export class TelaInicialGerComponent implements OnInit {
 
   aprovar(client: Client){
     if(confirm(`Aprovar ${client.nome} ?`)){
+      console.log(client.id)
       this.gerenteService.aprovar(client.id)?.subscribe((res)=>{
       if(res){
         window.location.reload();
